@@ -1,0 +1,279 @@
+Practical 6(A): Implement Bully Algorithm for Leader Election
+1. Aim
+
+To implement the Bully Algorithm for leader election in a distributed system.
+
+2. Explanation of Practical
+What is Bully Algorithm?
+
+Bully algorithm is a distributed election algorithm used to choose a coordinator (leader) among multiple processes.
+
+Key idea:
+
+Each process has a unique process ID.
+The process with the highest active ID becomes leader.
+If the coordinator fails, another process starts election.
+Higher ID processes override lower ID processes during election.
+
+It is called “Bully” because the highest-ID process always takes control.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand leader election in distributed systems.
+Learn coordinator selection process.
+Detect process failure.
+Elect new leader automatically.
+Understand fault handling in distributed systems.
+4. Usage of Bully Algorithm
+
+Used in:
+
+Distributed systems
+Cluster management
+Cloud systems
+Distributed databases
+Network coordination
+
+It helps automatically elect coordinator when current leader fails.
+
+5. How it is Implemented
+Important Steps
+1. Detect Coordinator Failure
+
+A process identifies that current leader is not responding.
+
+2. Start Election
+
+The process sends election message to all processes having higher IDs.
+
+3. Response from Higher Process
+
+If higher process is alive, it replies and starts election itself.
+
+4. Highest Active Process Wins
+
+Highest process ID becomes coordinator.
+
+5. Announce New Leader
+
+New leader sends coordinator message to all processes.
+
+6. Working of Bully Algorithm
+Processes: P1 P2 P3 P4 P5
+
+Suppose P5 fails
+
+P2 starts election
+   ↓
+Election message to P3, P4, P5
+   ↓
+P4 replies
+   ↓
+P4 becomes leader
+   ↓
+Coordinator message sent to all
+7. Technologies Used
+Java/Python/C++
+Distributed Systems
+Socket Communication
+Networking Concepts
+Process Management
+8. Real Life Examples
+1. Database Clusters
+
+Leader selected for transaction management.
+
+Example:
+
+MySQL Cluster primary node selection.
+
+2. Cloud Systems
+
+Master node selection among servers.
+
+Example:
+
+Kubernetes control plane leader.
+
+3. Distributed File Systems
+
+Coordinator manages file synchronization.
+
+4. Server Management
+
+Leader controls service scheduling.
+
+9. Advantages
+Simple implementation
+Fast election
+Automatic failure recovery
+Suitable for small systems
+Reliable coordinator selection
+10. Limitations
+More message overhead
+Not suitable for very large systems
+Depends on process IDs
+Higher network traffic
+11. Important Viva Questions and Answers
+Q1. What is Bully Algorithm?
+
+Bully Algorithm elects leader in distributed systems by selecting highest active process ID.
+
+Example:
+
+Among P1–P5, P5 becomes leader.
+
+Q2. Why is it called Bully Algorithm?
+
+Because higher ID process dominates lower ID processes during election.
+
+Example:
+
+P6 overrides election started by P2.
+
+Q3. What is leader election?
+
+It is the process of selecting one coordinator process.
+
+Example:
+
+Master server selection.
+
+Q4. What is coordinator?
+
+Coordinator is process that controls distributed tasks.
+
+Example:
+
+Primary database server.
+
+Q5. When does election start?
+
+Election starts when current coordinator fails.
+
+Example:
+
+Leader crash detection.
+
+Q6. Which process becomes leader?
+
+Highest active process ID becomes leader.
+
+Example:
+
+P8 selected among active nodes.
+
+Q7. What is election message?
+
+Message sent to initiate leader selection.
+
+Example:
+
+P2 sending election to P3 and P4.
+
+Q8. What is fault tolerance?
+
+System’s ability to continue after failures.
+
+Example:
+
+Automatic leader replacement.
+
+Q9. What is process ID?
+
+Unique number assigned to each process.
+
+Example:
+
+P1, P2, P3.
+
+Q10. What are applications?
+
+Used in distributed systems and cluster management.
+
+Example:
+
+Cloud server coordination.
+
+12. Important Technical Questions for External Examiner
+Q1. What happens if highest process fails?
+
+Next highest active process becomes leader.
+
+Example:
+
+P5 fails, P4 becomes leader.
+
+Q2. How is failure detected?
+
+By timeout or no response from coordinator.
+
+Example:
+
+Leader not replying to request.
+
+Q3. Why are higher IDs preferred?
+
+They ensure unique and consistent leader selection.
+
+Example:
+
+P9 preferred over P4.
+
+Q4. What is message overhead?
+
+Extra messages exchanged during election.
+
+Example:
+
+Election notifications.
+
+Q5. Is Bully Algorithm centralized?
+
+No, it is distributed election.
+
+Example:
+
+Any process can start election.
+
+Q6. What if two processes start election simultaneously?
+
+Higher process eventually wins.
+
+Example:
+
+P2 and P3 both initiate election.
+
+Q7. Why is it efficient for small systems?
+
+Fewer processes reduce communication overhead.
+
+Example:
+
+5-node cluster.
+
+Q8. What is timeout in Bully Algorithm?
+
+Waiting period for response from coordinator.
+
+Example:
+
+Leader failure detection.
+
+Q9. Can lower process become leader?
+
+Only if all higher processes fail.
+
+Example:
+
+P2 elected when P3–P5 fail.
+
+Q10. Why is leader election important?
+
+It ensures system coordination after failures.
+
+Example:
+
+Distributed transaction management.

@@ -1,0 +1,337 @@
+﻿Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+
+ASSIGNMENT NO. – 6 
+
+ 
+ 
+
+AIM: Implement Bully and Ring algorithm for leader election. 
+ 
+
+Objective: 
+Coordinator that performs functions needed by other processes. 
+
+ 
+Outcome: 
+
+Current process P elects itself as a coordinator. 
+
+ 
+ Explanation:  
+
+ 
+
+The bully algorithm is a type of Election algorithm which is mainly used for choosing a 
+coordinate.   In   a   distributed   system,    we   need   some   election   algorithms   such 
+as bully and ring to get a coordinator that performs functions needed by other processes. 
+
+ 
+Election algorithms select a single process from the processes that act as coordinator. A 
+new process is selected when the selected coordinator process crashes due to some 
+reasons. In order to determine the position where the new copy of coordinator should be 
+restarted, the election algorithms are used. 
+
+ 
+It assumes that each process has a unique priority number in the system, so the highest 
+priority process will be chosen first as a new coordinator. When the current use 
+coordinator process crashes, it elects a new process having the highest priority number. 
+We note that priority number and pass it to each active process in the distributed system. 
+
+The Bully election algorithm is as follows: 
+
+Let's assume that P is a process that sends a message to the coordinator. 
+
+It will assume that the coordinator process is failed when it doesn't receive any 
+response from the coordinator within the time interval T. 
+
+An election message will be sent to all the active processes by process P along 
+with the highest priority number. 
+
+If it will not receive any response within the time interval T, the current process P 
+elects itself as a coordinator. 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 52 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+After selecting itself as a coordinator, it again sends a message that process P is 
+elected as their new coordinator to all the processes having lower priority. 
+
+If process P will receive any response from another process Q within time T: 
+
+It again waits for time T to receive another response, i.e., it has been elected as 
+coordinator from process Q. 
+
+If it doesn't receive any response within time T, it is assumed to have failed, and 
+the algorithm is restarted 
+
+ 
+ 
+ 
+ 
+
+Practical 6A 
+BullyAlgo.j 
+ava: import 
+java.io.*; 
+class 
+BullyAlgo 
+{ 
+int 
+cood,ch,crash; 
+intprc[]; 
+public void election(int n) throws IOException 
+{ 
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 
+System.out.println("\nThe Coordinator Has Crashed!"); 
+int flag=1; 
+while(flag 
+==1) 
+{ 
+crash=0; 
+for(int 
+i1=0;i1<n;i1++) 
+if(prc[i1]==0) 
+crash++; 
+if(crash==n) 
+{ 
+System.out.println("\n*** All Processes Are Crashed ***"); break; 
+} 
+else 
+{ 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 53 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+ 
+
+System.out.println("\nEnter The 
+Intiator"); int 
+init=Integer.parseInt(br.readLine()); 
+if((init<1)||(init>n)||(prc[init-1]==0)) 
+{ 
+System.out.println("\nInvalid Initiator"); continue; 
+} 
+for(int i1=init-1;i1<n;i1++) 
+System.out.println("Process "+(i1+1)+" Called For Election"); 
+System.out.println("");for(int i1=init-1;i1<n;i1++) 
+{ 
+if(prc[i1]==0) 
+{ 
+System.out.println("Process "+(i1+1)+ " Is Dead"); 
+} 
+else 
+System.out.println("Process "+(i1+1)+" Is In"); 
+} 
+for(int i1=n- 
+1;i1>=0;i1--) 
+if(prc[i1]==1) 
+{ 
+cood=(i1+1); 
+System.out.println("\n*** New Coordinator Is "+(cood)+" ***"); 
+flag=0;break; 
+} 
+} 
+} 
+} 
+
+ 
+public void Bully() throws IOException 
+
+{ 
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 
+System.out.println("Enter The Number Of Processes: "); 
+int 
+n=Integer.parseInt(br.readLine() 
+);prc=new int[n]; 
+crash=0; 
+for(int 
+i=0;i<n;i++) 
+prc[i]=1; 
+coo 
+d= 
+n; 
+do 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 54 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+ 
+
+{ 
+System.out.println("\n\t1. Crash A Process"); 
+System.out.println("\t2. Recover A Process"); 
+System.out.println("\t3. Display New 
+Cordinator");System.out.println("\t4. Exit"); 
+ch=Integer.parseInt(br.readLine()); 
+switch(ch) 
+{ 
+case 1: System.out.println("\nEnter A Process To Crash"); int 
+cp=Integer.parseInt(br.readLine()); 
+if((cp>n)||(cp<1)){ 
+System.out.println("Invaid Process! Enter A Valid Process"); 
+} 
+else if((prc[cp-1]==1)&&(cood!=cp)) 
+{ 
+prc[cp-1]=0; 
+System.out.println("\nProcess "+cp+ " Has Been Crashed"); 
+} 
+else if((prc[cp-1]==1)&&(cood==cp)) 
+{ 
+prc[cp- 
+1]=0; 
+election 
+(n); 
+} 
+else 
+System.out.println("\nProcess "+cp+" Is Already Crashed"); 
+break;case 2: System.out.println("\nCrashed Processes Are: 
+\n"); for(int i=0;i<n;i++) 
+{ 
+if(prc[i]==0) 
+System.out.println( 
+i+1);crash++; 
+} 
+System.out.println("Enter The Process You Want To Recover"); int 
+rp=Integer.parseInt(br.readLine()); 
+if((rp<1)||(rp>n)) 
+System.out.println("\nInvalid Process. Enter A Valid 
+ID"); elseif((prc[rp-1]==0)&&(rp>cood)) 
+{ 
+prc[rp-1]=1; 
+System.out.println("\nProcess "+rp+" Has Recovered"); 
+cood=rp;System.out.println("\nProcess "+rp+ " Is The New 
+Coordinator"); 
+
+} 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 55 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+ 
+
+else if(crash==n) 
+{ 
+prc[rp- 
+1]=1; 
+cood=r 
+p; 
+System.out.println("\nProcess "+rp+ " Is The New Coordinator"); crash--; 
+} 
+else if((prc[rp-1]==0)&&(rp<cood)) 
+{ 
+prc[rp-1]=1; 
+System.out.println("\nProcess "+rp+" Has Recovered"); 
+} 
+else 
+System.out.println("\nProcess "+rp+" Is Not A Crashed Process"); 
+break;case 3: System.out.println("\nCurrent Coordinator Is "+cood); 
+break; case 4: System.exit(0); 
+break; 
+default: System.out.println("\nInvalid Entry!"); break; 
+} 
+} 
+while(ch!=4); 
+} 
+public static void main(String args[]) throws IOException 
+{ 
+BullyAlgo ob=new 
+BullyAlgo();ob.Bully(); 
+} 
+} 
+
+ 
+Output: 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 56 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 57 
+
+
+
+ 
+Laboratory Practice -V (414454) 
+Class: BE(IT) 
+
+ 
+ 
+
+ 
+
+Result: 
+You have executed all the processes 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+Date:  
+
+Marks obtained:  
+
+Sign of course coordinator:  
+
+Name of course Coordinator :  
+
+ Department of Information Technology Engineering, ZCOER, Narhe, Pune-41 
+Page 58

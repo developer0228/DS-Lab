@@ -1,0 +1,220 @@
+﻿Assignment 5:  Implement token ring based mutual exclusion algorithm.  
+
+Steps to Perform Token Ring Algorithm in Windows using Java 
+
+Step 1: Open VS Code 
+
+Install Java Extension Pack in VS Code. 
+
+ 
+
+Step 2: Create Java File 
+
+Create file: 
+
+TokenRing.java 
+
+Paste the Java program and save the file. 
+
+ 
+
+Step 3: Compile the Program 
+
+Open terminal in VS Code and run: 
+
+javac TokenRing.java 
+
+ 
+
+Step 4: Run the Program 
+
+java TokenRing 
+
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\\//\/\/\/\/\/\/\/\/\/\ 
+
+Viva Questions and Answers for Token Ring Mutual Exclusion Algorithm 
+
+1. What is Mutual Exclusion? 
+
+Mutual exclusion ensures that only one process can access the critical section at a time. 
+
+ 
+
+2. What is Token Ring Algorithm? 
+
+Token Ring Algorithm is a distributed mutual exclusion algorithm where a token circulates 
+among processes in a ring. 
+
+ 
+
+3. What is a token? 
+
+A token is a special permission message required to enter the critical section. 
+
+ 
+
+
+
+ 
+
+4. What is Critical Section? 
+
+Critical section is the part of the program where shared resources are accessed. 
+
+ 
+
+5. Which process can enter the critical section? 
+
+Only the process holding the token can enter the critical section. 
+
+ 
+
+6. How does the token move? 
+
+The token moves sequentially from one process to another in a ring structure. 
+
+Example: 
+
+P0 → P1 → P2 → P3 → P4 
+
+ 
+
+7. Why is Token Ring called a distributed algorithm? 
+
+Because multiple distributed processes communicate and share the token. 
+
+ 
+
+8. What happens if a process does not have the token? 
+
+It must wait until the token arrives. 
+
+ 
+
+9. What is the purpose of the token? 
+
+To avoid multiple processes entering the critical section simultaneously. 
+
+ 
+
+10. What is deadlock? 
+
+Deadlock is a condition where processes wait forever for resources. 
+
+ 
+
+11. Does Token Ring Algorithm avoid deadlock? 
+
+Yes 
+
+Because only one token exists. 
+
+ 
+
+12. What happens if the token is lost? 
+
+
+
+ 
+
+The system stops working until a new token is generated. 
+
+ 
+
+13. Advantages of Token Ring Algorithm 
+
+• No deadlock  
+
+• Fair process scheduling  
+
+• Simple implementation  
+
+ 
+
+14. Disadvantages of Token Ring Algorithm 
+
+• Token loss problem  
+
+• Delay in large networks  
+
+ 
+
+15. What is process synchronization? 
+
+Coordination between processes to avoid conflicts. 
+
+ 
+
+16. What is distributed system? 
+
+A distributed system is a collection of multiple computers/processes working together. 
+
+ 
+
+17. Why mutual exclusion is important? 
+
+To prevent data inconsistency and resource conflicts. 
+
+ 
+
+18. Which language is used in your program? 
+
+Java 
+
+ 
+
+19. What is the output of your program? 
+
+Token passing from P0 to P1 
+Token passing from P1 to P2 
+Process P2 is in Critical Section 
+
+ 
+
+
+
+ 
+
+20. Real-life applications of Token Ring Algorithm 
+
+• Network communication  
+
+• Distributed databases  
+
+• Resource sharing systems  
+
+• Operating systems  
+
+ 
+
+21. What is ring topology? 
+
+A network structure where each process/node connects in circular form. 
+
+ 
+
+22. What happens after a process exits critical section? 
+
+The token is passed to the next process. 
+
+ 
+
+23. Can two processes enter critical section together? 
+
+No 
+
+Because only one token exists. 
+
+ 
+
+24. What is starvation? 
+
+Starvation means a process waits indefinitely for resources. 
+
+ 
+
+25. Does Token Ring Algorithm prevent starvation? 
+
+Yes 
+
+Because the token circulates fairly among all processes.

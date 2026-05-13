@@ -1,0 +1,301 @@
+﻿Assignment 2: Develop any distributed application using CORBA to demonstrate object 
+brokering. (Calculator or String operations). 
+
+ 
+
+Steps to Perform CORBA Program on Ubuntu 
+
+Step 1: Open Ubuntu Terminal 
+
+Press: 
+
+Ctrl + Alt + T 
+
+Step 2: Install Java 8 
+
+Update Ubuntu: 
+
+sudo apt update 
+
+Install Java 8: 
+
+sudo apt install openjdk-8-jdk -y 
+
+Step 3: Check Java Version 
+
+java -version 
+
+Step 4: Create Project Folder 
+
+mkdir CORBA 
+cd CORBA 
+
+Step 5: Create IDL File 
+
+nano Calc.idl 
+
+Save the file using: 
+
+Ctrl + O → Enter → Ctrl + X 
+
+Step 6: Generate CORBA Files 
+
+idlj -fall Calc.idl 
+
+This command automatically generates CORBA helper files. 
+
+Step 7: Create Server File 
+
+nano Server.java 
+
+Paste the server code and save the file. 
+
+Step 8: Create Client File 
+
+nano Client.java 
+
+
+
+Paste the client code and save the file. 
+
+Step 9: Compile All Java Files 
+
+javac *.java 
+
+Step 10: Start CORBA Naming Service 
+
+Open a new terminal and run: 
+
+cd CORBA 
+orbd -ORBInitialPort 1050& 
+
+Step 11: Run Server Program 
+
+Open another terminal and run: 
+
+cd CORBA 
+java Server -ORBInitialPort 1050 
+
+Output: 
+
+Server Started 
+
+Step 12: Run Client Program 
+
+Open another terminal and run: 
+
+cd CORBA 
+java Client -ORBInitialPort 1050 
+
+\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\  
+
+ 
+
+Viva Questions and Answers for CORBA Assignment 
+
+1. What is CORBA? 
+
+CORBA stands for: 
+
+Common Object Request Broker Architecture 
+
+It is used for communication between distributed applications. 
+
+ 
+
+2. What is the purpose of CORBA? 
+
+CORBA allows objects written in different languages and running on different machines to 
+communicate with each other. 
+
+ 
+
+
+
+3. What is ORB? 
+
+ORB stands for: 
+
+Object Request Broker 
+
+It acts as middleware between client and server. 
+
+ 
+
+4. What is IDL? 
+
+IDL means: 
+
+Interface Definition Language 
+
+It defines methods that client and server can use. 
+
+ 
+
+5. Why is Calc.idl file used? 
+
+It defines remote methods like: 
+
+add(), sub(), mul(), div() 
+
+ 
+
+6. What is the use of idlj -fall Calc.idl command? 
+
+It generates helper and skeleton files automatically from the IDL file. 
+
+ 
+
+7. What is Naming Service in CORBA? 
+
+Naming Service helps the client find remote server objects. 
+
+ 
+
+8. Which command starts Naming Service? 
+
+orbd -ORBInitialPort 1050& 
+
+ 
+
+9. Which port is used in CORBA? 
+
+Default port used: 
+
+1050 
+
+ 
+
+10. What is the role of the server? 
+
+
+
+The server creates remote objects and provides services to clients. 
+
+ 
+
+11. What is the role of the client? 
+
+The client accesses remote methods from the server. 
+
+ 
+
+12. What is distributed application? 
+
+An application where client and server run on different systems and communicate over a 
+network. 
+
+ 
+
+13. What is middleware? 
+
+Middleware is software that connects client and server applications. 
+
+Example: 
+
+CORBA 
+
+ 
+
+14. Why Java 8 is used for CORBA? 
+
+Because CORBA support was removed in Java 11 and later versions. 
+
+ 
+
+15. What is the function of ORB.init()? 
+
+It initializes the CORBA environment. 
+
+ 
+
+16. What is rebind() used for? 
+
+It registers the server object with the naming service. 
+
+ 
+
+17. What is resolve_str() used for? 
+
+Client uses it to find the remote object from naming service. 
+
+ 
+
+18. What are the advantages of CORBA? 
+
+• Platform independent  
+
+
+
+• Language independent  
+
+• Supports distributed systems  
+
+• Reusable objects  
+
+ 
+
+19. What are the disadvantages of CORBA? 
+
+• Complex architecture  
+
+• Slow performance  
+
+• Difficult debugging  
+
+ 
+
+20. What is the output of your program? 
+
+Addition = 30 
+Subtraction = 10 
+Multiplication = 200 
+Division = 2 
+
+ 
+
+21. Real-life applications of CORBA 
+
+• Banking systems  
+
+• Telecom systems  
+
+• Enterprise applications  
+
+• Distributed software systems  
+
+ 
+
+22. Difference between RMI and CORBA 
+
+RMI CORBA 
+
+Java only Language independent 
+
+Simple Complex 
+
+Uses Java objects Uses IDL 
+
+ 
+
+23. What happens if server is not started? 
+
+
+
+Client cannot connect and gives connection error. 
+
+ 
+
+24. What files are required in this assignment? 
+
+Main files: 
+
+Calc.idl 
+Server.java 
+Client.java 
+
+ 
+
+25. What is object brokering? 
+
+Object brokering means communication between distributed objects using ORB.

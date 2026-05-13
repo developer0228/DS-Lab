@@ -1,0 +1,263 @@
+Practical 7: Create a Simple Web Service and Consume it using Distributed Application
+1. Aim
+To create a simple web service and develop a distributed application to consume the web service.
+
+2. Explanation of Practical
+What is Web Service?
+A Web Service is a software component that allows communication between applications over a network using standard web protocols.
+
+It enables:
+
+Data exchange
+
+Remote service access
+
+Interoperability between applications
+
+In this practical:
+
+Server provides web service.
+
+Client consumes the service remotely.
+
+Example:
+
+Calculator service
+
+Weather service
+
+String operations service
+
+3. Outcome of Practical
+After performing this practical, we can:
+
+Understand web service architecture.
+
+Learn service provider and consumer model.
+
+Implement distributed communication using web services.
+
+Understand client-server interaction.
+
+Learn remote data exchange.
+
+4. Usage of Web Services
+Used in:
+
+Cloud computing
+
+E-commerce systems
+
+Mobile applications
+
+Banking applications
+
+Distributed enterprise systems
+
+It helps applications communicate over internet/network.
+
+5. How it is Implemented
+Important Steps
+1. Create Web Service
+Define service methods.
+
+Deploy service on server.
+
+Example:
+
+add()
+
+multiply()
+
+stringReverse()
+
+2. Publish Web Service
+Service is hosted using server or web container.
+
+3. Create Client Application
+Client sends request to web service.
+
+4. Consume Service
+Client receives and processes response from server.
+
+5. Display Result
+Output from service displayed at client side.
+
+6. Working of Web Service
+Client Application
+        ↓
+Request Sent over Network
+        ↓
+Web Service Server
+        ↓
+Service Execution
+        ↓
+Response Returned to Client
+7. Technologies Used
+Web Services
+
+HTTP Protocol
+
+SOAP/REST
+
+Java/Python
+
+Distributed Systems
+
+8. Real Life Examples
+1. Online Payment Systems
+Applications use payment gateway web services.
+
+Example:
+UPI payment processing.
+
+2. Weather Applications
+Apps fetch weather data using APIs.
+
+3. Google Maps
+Applications consume map services remotely.
+
+4. E-Commerce Applications
+Product and payment services communicate through APIs.
+
+9. Advantages
+Platform independent
+
+Easy communication over network
+
+Reusable services
+
+Supports distributed computing
+
+Interoperability between applications
+
+10. Limitations
+Network dependency
+
+Security risks
+
+Slower than local communication
+
+Requires internet/network connectivity
+
+11. Important Viva Questions and Answers
+Q1. What is a web service?
+A web service is software that enables communication between applications over network.
+
+Example:
+Online payment API.
+
+Q2. What is distributed application?
+Application running on multiple systems connected through network.
+
+Example:
+Client-server web application.
+
+Q3. What protocol is commonly used in web services?
+HTTP protocol is commonly used.
+
+Example:
+Browser-server communication.
+
+Q4. What is SOAP?
+SOAP stands for Simple Object Access Protocol used for web service communication.
+
+Example:
+XML-based messaging.
+
+Q5. What is REST?
+REST stands for Representational State Transfer used for lightweight web services.
+
+Example:
+REST API in web applications.
+
+Q6. What is service consumer?
+Client application using web service.
+
+Example:
+Mobile app calling weather API.
+
+Q7. What is interoperability?
+Different applications communicating regardless of platform or language.
+
+Example:
+Java client accessing Python service.
+
+Q8. What is API?
+API stands for Application Programming Interface used for application communication.
+
+Example:
+Google Maps API.
+
+Q9. What is request-response model?
+Client sends request and server returns response.
+
+Example:
+Fetching weather data.
+
+Q10. What are applications of web services?
+Used in banking, e-commerce, cloud systems, and mobile apps.
+
+Example:
+Online shopping applications.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between SOAP and REST?
+SOAP uses XML and strict standards while REST is lightweight and flexible.
+
+Example:
+REST APIs in modern web apps.
+
+Q2. What is WSDL?
+WSDL stands for Web Service Description Language describing web service methods.
+
+Example:
+Service operation definitions.
+
+Q3. What is endpoint in web service?
+Endpoint is URL where web service is available.
+
+Example:
+API URL.
+
+Q4. Why are web services platform independent?
+They use standard protocols like HTTP and XML/JSON.
+
+Example:
+Cross-platform communication.
+
+Q5. What is XML?
+XML stands for Extensible Markup Language used for data exchange.
+
+Example:
+SOAP messages.
+
+Q6. What is JSON?
+JSON stands for JavaScript Object Notation used for lightweight data transfer.
+
+Example:
+REST API responses.
+
+Q7. What is client-server architecture?
+Client requests services and server provides services.
+
+Example:
+Web browser and web server.
+
+Q8. What is stateless communication in REST?
+Server does not store client session information.
+
+Example:
+Independent API requests.
+
+Q9. What are APIs used for?
+APIs enable communication between software applications.
+
+Example:
+Payment gateway integration.
+
+Q10. Why are web services important in distributed systems?
+They enable remote communication and interoperability.
+
+Example:
+Cloud-based applications.

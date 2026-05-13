@@ -1,0 +1,245 @@
+Practical 5: Implement Token Ring Based Mutual Exclusion Algorithm
+1. Aim
+To implement Token Ring based Mutual Exclusion Algorithm for controlling access to shared resources in distributed systems.
+
+2. Explanation of Practical
+What is Token Ring Mutual Exclusion?
+Token Ring Mutual Exclusion is a distributed algorithm used to ensure that only one process accesses the critical section at a time.
+
+In this algorithm:
+
+Processes are connected in logical ring structure.
+
+A special message called token circulates in the ring.
+
+Only the process holding the token can enter critical section.
+
+This prevents simultaneous access to shared resources.
+
+3. Outcome of Practical
+After performing this practical, we can:
+
+Understand mutual exclusion in distributed systems.
+
+Learn token-based synchronization.
+
+Implement critical section management.
+
+Prevent race conditions.
+
+Understand process coordination.
+
+4. Usage of Token Ring Algorithm
+Used in:
+
+Distributed operating systems
+
+Network communication systems
+
+Resource sharing systems
+
+Printer sharing
+
+Distributed databases
+
+It ensures safe access to shared resources.
+
+5. How it is Implemented
+Important Steps
+1. Create Logical Ring
+Processes are connected in circular manner.
+
+2. Generate Token
+A unique token is passed among processes.
+
+3. Token Request
+Process waits for token to access critical section.
+
+4. Enter Critical Section
+Only token holder enters critical section.
+
+5. Pass Token
+After execution, token is forwarded to next process.
+
+6. Working of Token Ring Algorithm
+Process Ring
+P1 → P2 → P3 → P4
+↑               ↓
+← ← ← Token ← ← ←
+
+Token Holder
+      ↓
+Access Critical Section
+      ↓
+Pass Token to Next Process
+7. Technologies Used
+Distributed Systems
+
+Java/C/C++
+
+Networking Concepts
+
+Process Synchronization
+
+Mutual Exclusion Algorithms
+
+8. Real Life Examples
+1. Printer Sharing Systems
+Only one user accesses printer at a time.
+
+Example:
+Office network printer access.
+
+2. Database Transactions
+Prevents simultaneous modification of same data.
+
+3. Distributed File Systems
+Controls file access among multiple users.
+
+4. Network Communication
+Token passing used in communication networks.
+
+Example:
+IBM Token Ring Network.
+
+9. Advantages
+Prevents deadlock
+
+Fair access to processes
+
+No starvation
+
+Simple implementation
+
+Ordered token passing
+
+10. Limitations
+Token loss problem
+
+Ring failure affects system
+
+Delay in large networks
+
+Single token dependency
+
+11. Important Viva Questions and Answers
+Q1. What is mutual exclusion?
+Mutual exclusion ensures only one process accesses shared resource at a time.
+
+Example:
+Single printer access.
+
+Q2. What is Token Ring Algorithm?
+It is a token-based mutual exclusion algorithm using logical ring structure.
+
+Example:
+Processes passing token sequentially.
+
+Q3. What is token?
+Token is special permission message allowing process to enter critical section.
+
+Example:
+Process holding token accessing resource.
+
+Q4. What is critical section?
+Critical section is code segment accessing shared resource.
+
+Example:
+Updating shared database file.
+
+Q5. Why is token important?
+Without token, process cannot access critical section.
+
+Example:
+Only authorized process enters resource area.
+
+Q6. What is logical ring?
+Processes are virtually connected in circular structure.
+
+Example:
+P1 → P2 → P3 → P1.
+
+Q7. What is race condition?
+Race condition occurs when multiple processes access shared resource simultaneously.
+
+Example:
+Two users editing same file.
+
+Q8. What is starvation?
+A process continuously waiting without getting resource access.
+
+Example:
+Process never receiving token.
+
+Q9. What happens if token is lost?
+No process can enter critical section until token regenerated.
+
+Example:
+Communication failure causing token loss.
+
+Q10. What are applications of token ring?
+Used in resource sharing and distributed synchronization.
+
+Example:
+Network printer management.
+
+12. Important Technical Questions for External Examiner
+Q1. Why is Token Ring Algorithm deadlock free?
+Only token holder enters critical section, preventing circular waiting.
+
+Example:
+Single token controlling access.
+
+Q2. Difference between centralized and token-based mutual exclusion?
+Centralized uses coordinator while token-based uses circulating token.
+
+Example:
+Server permission vs token passing.
+
+Q3. What is token regeneration?
+Creating new token when original token is lost.
+
+Example:
+System recovering from communication failure.
+
+Q4. What is synchronization in distributed systems?
+Coordination among processes for proper execution.
+
+Example:
+Controlled shared resource access.
+
+Q5. What is fairness in token ring?
+Every process gets equal chance to access critical section.
+
+Example:
+Sequential token passing.
+
+Q6. Why is logical ring used?
+It provides ordered token circulation among processes.
+
+Example:
+Fixed token passing sequence.
+
+Q7. What is throughput?
+Number of processes completed in given time.
+
+Example:
+Processes accessing critical section efficiently.
+
+Q8. What is communication overhead?
+Extra communication required for token passing.
+
+Example:
+Sending token messages.
+
+Q9. What is distributed synchronization?
+Coordinating processes running on different systems.
+
+Example:
+Shared database access control.
+
+Q10. Why is mutual exclusion necessary?
+It prevents data inconsistency and resource conflicts.
+
+Example:
+Simultaneous bank account updates.

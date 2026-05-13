@@ -1,0 +1,2232 @@
+Practical 1: Implement Multi-Threaded Client/Server Process Communication using RMI
+Aim
+
+To implement multi-threaded client/server communication using Java RMI (Remote Method Invocation) for distributed system communication.
+
+1. Explanation of Practical
+What is RMI?
+
+Java RMI (Remote Method Invocation) is a distributed computing technology that allows an object running on one machine (server) to invoke methods on an object running on another machine (client).
+
+It enables communication between distributed applications over a network.
+
+In this practical:
+
+Server provides remote services.
+Client accesses those services remotely.
+Multi-threading allows multiple clients to communicate with the server simultaneously.
+2. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand distributed client-server architecture.
+Learn remote communication between systems.
+Implement Java RMI-based applications.
+Handle multiple clients simultaneously using threads.
+Understand remote object registration and invocation.
+3. Usage of this Practical
+
+This practical is useful for:
+
+Distributed computing systems
+Remote service invocation
+Enterprise applications
+Network-based applications
+Cloud and client-server systems
+
+It helps understand how applications communicate remotely in real-time environments.
+
+4. How it is Implemented
+Step-by-Step Implementation
+1. Create Remote Interface
+Define methods that can be accessed remotely.
+Interface extends Remote.
+Methods throw RemoteException.
+
+Example:
+
+Addition
+Subtraction
+String operations
+2. Implement Remote Interface
+Create server implementation class.
+Extend UnicastRemoteObject.
+Implement remote methods.
+3. Create RMI Server
+Register remote object using RMI Registry.
+Bind object name with registry.
+
+Server waits for client requests.
+
+4. Create Client Program
+Client looks up remote object using registry.
+Invokes methods remotely.
+5. Multi-Threading Concept
+Multiple clients connect simultaneously.
+Each request handled in separate thread.
+Improves concurrency and performance.
+5. Working of Multi-Threaded RMI
+Communication Flow
+Client Request
+      ↓
+RMI Registry
+      ↓
+Server Object
+      ↓
+Separate Thread Created
+      ↓
+Method Executed
+      ↓
+Response Returned to Client
+6. Technologies Used
+Java
+Java RMI API
+Threads
+TCP/IP Networking
+Distributed System Concepts
+7. Real Life Examples where RMI is Used
+1. Banking Systems
+Remote transaction processing
+Balance checking from different branches
+
+Example:
+ATM communicating with central bank server.
+
+2. Online Reservation Systems
+Ticket booking systems
+Multiple users accessing same server simultaneously
+
+Example:
+Railway reservation system.
+
+3. Distributed Chat Applications
+Clients communicate with remote server.
+4. Cloud-Based Applications
+Remote service invocation in cloud infrastructure.
+5. Enterprise Distributed Applications
+Large organizations using centralized servers.
+
+Example:
+ERP systems.
+
+8. Advantages of Multi-Threaded RMI
+Supports distributed computing
+Platform independent
+Simplifies remote communication
+Handles multiple users efficiently
+Object-oriented communication
+9. Limitations
+Network dependency
+Slower than local calls
+Security concerns
+Java dependent
+10. Important Viva Questions and Answers
+Q1. What is RMI?
+
+RMI stands for Remote Method Invocation. It allows a Java object on one system to invoke methods on an object running on another system remotely.
+
+Example:
+
+Client accessing calculator methods from remote server.
+
+Q2. What is distributed system?
+
+A distributed system is a collection of independent computers that communicate and work together as a single system.
+
+Example:
+
+Cloud computing platforms.
+
+Q3. What is the role of RMI Registry?
+
+RMI Registry stores remote object references so clients can locate remote services.
+
+Example:
+
+Client searching calculator object using object name.
+
+Q4. Why is multi-threading used in RMI?
+
+Multi-threading allows the server to handle multiple client requests simultaneously.
+
+Example:
+
+Many users accessing banking server together.
+
+Q5. What is Remote Interface?
+
+A remote interface defines methods that can be invoked remotely by clients.
+
+Example:
+
+Addition and subtraction methods in calculator service.
+
+Q6. What is RemoteException?
+
+RemoteException handles communication-related errors during remote method invocation.
+
+Example:
+
+Server connection failure.
+
+Q7. What is UnicastRemoteObject?
+
+It is a class used to export remote objects so they can receive incoming remote calls.
+
+Example:
+
+Server object becoming remotely accessible.
+
+Q8. Which protocol is used in Java RMI?
+
+Java RMI uses TCP/IP protocol for communication between client and server.
+
+Example:
+
+Data transfer over network.
+
+Q9. What is client-server architecture?
+
+It is a model where clients request services and servers provide services.
+
+Example:
+
+Web browser and web server.
+
+Q10. What are the advantages of RMI?
+
+RMI provides easy remote communication, distributed processing, object-oriented programming support, and multi-client handling.
+
+Example:
+
+Distributed enterprise applications.
+
+11. Important Technical Questions for External Examiner
+Q1. Difference between RMI and Socket Programming?
+
+RMI works on remote objects and methods, while socket programming works on low-level data communication.
+
+Example:
+
+RMI for remote calculator, sockets for chat systems.
+
+Q2. What is stub in RMI?
+
+Stub acts as a proxy object on client side for communicating with remote server object.
+
+Example:
+
+Client uses stub instead of direct server object.
+
+Q3. What happens if server is down?
+
+Client receives RemoteException because remote object becomes unavailable.
+
+Example:
+
+Connection refused error.
+
+Q4. Why does remote interface extend Remote?
+
+It marks methods as remotely accessible.
+
+Example:
+
+Java identifies remote callable methods.
+
+Q5. Can RMI support distributed applications?
+
+Yes, RMI is specially designed for distributed applications.
+
+Example:
+
+Distributed banking systems.
+
+Q6. What is serialization in RMI?
+
+Serialization converts objects into byte stream for network transmission.
+
+Example:
+
+Sending employee object from client to server.
+
+Q7. How does RMI provide transparency?
+
+Client invokes remote methods like local methods without handling network details manually.
+
+Example:
+
+Calling remote add() method directly.
+
+Q8. What are threads?
+
+Threads are lightweight sub-processes used for concurrent execution.
+
+Example:
+
+Multiple clients handled simultaneously.
+
+Q9. What is concurrency in distributed systems?
+
+Concurrency means multiple operations executing at the same time.
+
+Example:
+
+Multiple ATM transactions together.
+
+Q10. Why is Java suitable for RMI?
+
+Java provides built-in RMI libraries, platform independence, and object-oriented support.
+
+Example:
+
+Cross-platform distributed applications.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Practical 2: Develop Distributed Application using CORBA to Demonstrate Object Brokering
+
+(Calculator or String Operations)
+
+1. Aim
+
+To develop a distributed application using CORBA (Common Object Request Broker Architecture) for remote object communication between client and server.
+
+2. Explanation of Practical
+What is CORBA?
+
+CORBA stands for Common Object Request Broker Architecture.
+It is a middleware technology used for communication between distributed objects written in different programming languages and running on different platforms.
+
+CORBA uses an ORB (Object Request Broker) to establish communication between client and server objects.
+
+In this practical:
+
+Server provides remote services.
+Client accesses those services remotely.
+ORB acts as middleware for communication.
+
+Example:
+
+Calculator operations
+String operations
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand object brokering in distributed systems.
+Learn CORBA architecture and ORB working.
+Implement distributed client-server communication.
+Understand remote object invocation.
+Learn middleware-based communication.
+4. Usage of CORBA
+
+CORBA is used for:
+
+Distributed enterprise applications
+Banking systems
+Telecommunication systems
+Distributed object communication
+Heterogeneous system integration
+
+It helps different applications communicate even if they use different languages or platforms.
+
+5. How it is Implemented
+Important Steps
+1. Define IDL
+
+IDL (Interface Definition Language) defines remote methods.
+
+Example:
+
+add()
+subtract()
+stringReverse()
+2. Generate Stub and Skeleton
+
+IDL compiler generates:
+
+Stub (client side)
+Skeleton (server side)
+3. Implement Server
+Create servant class.
+Register object with ORB.
+4. Create Client
+Client accesses remote object through ORB.
+Invokes remote methods.
+5. Communication through ORB
+
+ORB acts as broker between client and server objects.
+
+6. Working of CORBA
+Client
+   ↓
+ORB (Object Request Broker)
+   ↓
+Remote Server Object
+   ↓
+Response Returned
+7. Technologies Used
+Java CORBA
+ORB
+IDL Compiler
+Distributed System Concepts
+Client-Server Architecture
+8. Real Life Examples
+1. Banking Systems
+
+Used for communication between distributed banking servers.
+
+Example:
+
+ATM interacting with bank database server.
+
+2. Telecom Systems
+
+Distributed telecom services communicate using middleware.
+
+3. Air Reservation Systems
+
+Remote ticket booking systems communicate across servers.
+
+4. Enterprise Applications
+
+Large companies integrate multiple systems using CORBA.
+
+9. Advantages of CORBA
+Platform independent
+Language independent
+Supports distributed computing
+Reusable objects
+Easy integration of heterogeneous systems
+10. Limitations
+Complex architecture
+Higher overhead
+Difficult debugging
+Slower performance compared to modern lightweight systems
+11. Important Viva Questions and Answers
+Q1. What is CORBA?
+
+CORBA is middleware architecture used for communication between distributed objects in different systems.
+
+Example:
+
+Client remotely accessing calculator server.
+
+Q2. What is ORB?
+
+ORB stands for Object Request Broker. It manages communication between client and server objects.
+
+Example:
+
+ORB forwarding client request to server.
+
+Q3. What is IDL?
+
+IDL stands for Interface Definition Language. It defines remote methods for communication.
+
+Example:
+
+Defining add() method for calculator service.
+
+Q4. What is object brokering?
+
+Object brokering means managing communication between distributed objects using middleware.
+
+Example:
+
+ORB connecting client and remote server object.
+
+Q5. Why is CORBA platform independent?
+
+CORBA supports communication across different operating systems and languages.
+
+Example:
+
+Java client communicating with C++ server.
+
+Q6. What is middleware?
+
+Middleware is software that connects distributed applications.
+
+Example:
+
+CORBA ORB acting between client and server.
+
+Q7. What is stub in CORBA?
+
+Stub is client-side proxy object used for remote communication.
+
+Example:
+
+Client invoking remote add() method through stub.
+
+Q8. What is skeleton in CORBA?
+
+Skeleton receives client requests on server side and forwards them to actual object.
+
+Example:
+
+Server processing calculator operation request.
+
+Q9. What is distributed application?
+
+A distributed application runs on multiple systems connected over network.
+
+Example:
+
+Online banking application.
+
+Q10. What are advantages of CORBA?
+
+CORBA provides interoperability, distributed communication, and platform independence.
+
+Example:
+
+Enterprise distributed systems.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between CORBA and RMI?
+
+CORBA supports multiple languages while RMI mainly supports Java.
+
+Example:
+
+CORBA supports Java-C++ communication.
+
+Q2. What is servant class in CORBA?
+
+Servant class implements remote methods defined in IDL.
+
+Example:
+
+Calculator implementation class.
+
+Q3. What is remote object invocation?
+
+Calling methods of objects located on another machine remotely.
+
+Example:
+
+Client calling remote add() function.
+
+Q4. What protocol is used in CORBA?
+
+CORBA uses IIOP (Internet Inter-ORB Protocol).
+
+Example:
+
+Communication between distributed ORBs.
+
+Q5. Why is IDL important?
+
+IDL provides language-independent interface definition.
+
+Example:
+
+Same interface usable in Java and C++.
+
+Q6. What is interoperability?
+
+Interoperability means different systems working together.
+
+Example:
+
+Linux server communicating with Windows client.
+
+Q7. Can CORBA support heterogeneous systems?
+
+Yes, CORBA supports different platforms and programming languages.
+
+Example:
+
+Java and Python distributed systems.
+
+Q8. What happens if ORB fails?
+
+Communication between client and server stops.
+
+Example:
+
+Remote method invocation failure.
+
+Q9. What is client-server architecture in CORBA?
+
+Client requests services and server provides remote services through ORB.
+
+Example:
+
+Remote calculator application.
+
+Q10. Why is CORBA used in distributed systems?
+
+CORBA enables standardized communication between distributed objects.
+
+Example:
+
+Enterprise business applications.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Practical 3: Develop Distributed System to Find Sum of N Elements using MPI/OpenMP
+1. Aim
+
+To develop a distributed system using MPI/OpenMP for calculating the sum of N array elements by distributing work among multiple processors.
+
+2. Explanation of Practical
+What is MPI/OpenMP?
+MPI
+
+MPI stands for Message Passing Interface.
+It is used for communication between multiple processors in distributed systems.
+
+OpenMP
+
+OpenMP stands for Open Multi-Processing.
+It is used for parallel programming using multiple threads in shared memory systems.
+
+In this practical:
+
+Array is divided among processors.
+Each processor calculates partial sum.
+Final sum is obtained by combining intermediate sums.
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand parallel and distributed computing.
+Learn task distribution among processors.
+Implement parallel sum calculation.
+Improve execution speed using multiprocessing.
+Understand processor coordination.
+4. Usage of this Practical
+
+Used in:
+
+High Performance Computing (HPC)
+Scientific computations
+Big data processing
+Parallel algorithms
+Supercomputers
+
+It helps reduce execution time for large computations.
+
+5. How it is Implemented
+Important Steps
+1. Divide Array
+N elements are divided among n processors.
+
+Example:
+100 elements distributed among 4 processors.
+
+2. Assign Work
+
+Each processor receives subset of array.
+
+Example:
+
+P1 → 1–25
+P2 → 26–50
+3. Calculate Intermediate Sum
+
+Every processor computes local sum independently.
+
+4. Combine Results
+
+All intermediate sums are added to obtain final sum.
+
+5. Display Partial Sums
+
+Each processor displays its calculated sum.
+
+6. Working of Distributed Sum Calculation
+Input Array
+      ↓
+Array Divided Among Processors
+      ↓
+Each Processor Calculates Partial Sum
+      ↓
+Intermediate Sums Generated
+      ↓
+Final Sum Computed
+7. Technologies Used
+MPI
+OpenMP
+Parallel Computing
+Distributed Processing
+C/C++ or Java
+8. Real Life Examples
+1. Scientific Simulations
+
+Large mathematical calculations distributed across processors.
+
+Example:
+
+Weather forecasting systems.
+
+2. Big Data Analytics
+
+Large datasets processed in parallel.
+
+Example:
+
+Data analysis in Hadoop clusters.
+
+3. Supercomputers
+
+Multiple processors solve complex problems together.
+
+Example:
+
+Space research calculations.
+
+4. Machine Learning
+
+Parallel computation of huge datasets.
+
+Example:
+
+AI model training.
+
+9. Advantages
+Faster computation
+Efficient processor utilization
+Reduced execution time
+Supports large datasets
+Improves performance
+10. Limitations
+Synchronization complexity
+Communication overhead
+Requires multiple processors
+Debugging is difficult
+11. Important Viva Questions and Answers
+Q1. What is MPI?
+
+MPI stands for Message Passing Interface used for communication between distributed processors.
+
+Example:
+
+Processors exchanging partial sums.
+
+Q2. What is OpenMP?
+
+OpenMP is a parallel programming model using multiple threads in shared memory systems.
+
+Example:
+
+Parallel loop execution.
+
+Q3. What is parallel computing?
+
+Parallel computing performs multiple computations simultaneously using multiple processors.
+
+Example:
+
+Array sum calculation using many processors.
+
+Q4. What is distributed computing?
+
+Distributed computing divides tasks among multiple systems connected through network.
+
+Example:
+
+Cluster computing.
+
+Q5. Why is array divided among processors?
+
+To reduce execution time and improve performance.
+
+Example:
+
+1000 elements shared among 10 processors.
+
+Q6. What is intermediate sum?
+
+It is partial sum calculated by individual processor.
+
+Example:
+
+Processor P1 calculating sum of first 25 elements.
+
+Q7. What is synchronization?
+
+Synchronization coordinates execution among processors or threads.
+
+Example:
+
+Waiting for all processors before final sum.
+
+Q8. What is processor communication in MPI?
+
+Processors exchange data using message passing.
+
+Example:
+
+Sending partial sums to master processor.
+
+Q9. What are advantages of parallel processing?
+
+It improves speed, efficiency, and large-scale computation handling.
+
+Example:
+
+Scientific simulations.
+
+Q10. What is load balancing?
+
+Equal distribution of work among processors.
+
+Example:
+
+Each processor receiving same number of elements.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between MPI and OpenMP?
+
+MPI uses message passing in distributed memory systems while OpenMP uses threads in shared memory systems.
+
+Example:
+
+Cluster vs multicore CPU.
+
+Q2. What is master-slave architecture in MPI?
+
+Master distributes tasks and slaves perform computations.
+
+Example:
+
+Master collecting intermediate sums.
+
+Q3. Why is parallel processing important?
+
+It reduces computation time for large problems.
+
+Example:
+
+Big data analysis.
+
+Q4. What is scalability?
+
+Ability to increase performance with additional processors.
+
+Example:
+
+Adding processors for faster execution.
+
+Q5. What is communication overhead?
+
+Extra time spent exchanging data between processors.
+
+Example:
+
+Sending partial sums.
+
+Q6. What is thread in OpenMP?
+
+Thread is lightweight execution unit used for parallel tasks.
+
+Example:
+
+Multiple threads processing array simultaneously.
+
+Q7. What is reduction operation?
+
+Combining partial results into final result.
+
+Example:
+
+Adding all intermediate sums.
+
+Q8. What is shared memory?
+
+Memory accessible by multiple processors or threads.
+
+Example:
+
+OpenMP shared variables.
+
+Q9. What are applications of MPI?
+
+MPI is used in scientific computing and distributed systems.
+
+Example:
+
+Supercomputers.
+
+Q10. Why are distributed systems useful?
+
+They improve performance and resource utilization.
+
+Example:
+
+Cloud computing systems.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Practical 4: Implement Berkeley Algorithm for Clock Synchronization
+1. Aim
+
+To implement Berkeley Algorithm for synchronizing clocks in distributed systems.
+
+2. Explanation of Practical
+What is Berkeley Algorithm?
+
+Berkeley Algorithm is a clock synchronization algorithm used in distributed systems where one system acts as a master server and synchronizes time among all connected systems.
+
+The master system:
+
+Collects time from all systems
+Calculates average time
+Sends adjustment values to all systems
+
+This ensures all clocks remain approximately synchronized.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand clock synchronization concepts.
+Learn distributed system time management.
+Implement Berkeley synchronization algorithm.
+Understand time coordination among distributed nodes.
+Learn master-slave synchronization mechanism.
+4. Usage of Berkeley Algorithm
+
+Used in:
+
+Distributed systems
+Banking servers
+Airline reservation systems
+Distributed databases
+Network management systems
+
+It helps maintain consistent system time across multiple machines.
+
+5. How it is Implemented
+Important Steps
+1. Master Polls All Systems
+
+Master server requests current time from all nodes.
+
+2. Time Collection
+
+Each system sends its local time to master.
+
+3. Average Time Calculation
+
+Master calculates average clock time excluding faulty clocks.
+
+4. Time Adjustment
+
+Master sends correction values to all systems.
+
+5. Clock Synchronization
+
+All systems update their clocks accordingly.
+
+6. Working of Berkeley Algorithm
+Master Server
+      ↓
+Collects Time from All Nodes
+      ↓
+Calculates Average Time
+      ↓
+Sends Time Corrections
+      ↓
+All Clocks Synchronized
+7. Technologies Used
+Distributed Systems
+Java/C/C++
+Networking Concepts
+Clock Synchronization
+Client-Server Architecture
+8. Real Life Examples
+1. Banking Systems
+
+Ensures all banking servers maintain same transaction time.
+
+Example:
+
+ATM transaction timestamp synchronization.
+
+2. Airline Reservation Systems
+
+Synchronizes ticket booking servers.
+
+3. Distributed Databases
+
+Maintains consistent timestamps in databases.
+
+4. Data Centers
+
+Synchronizes servers across network.
+
+9. Advantages
+Maintains uniform system time
+Improves coordination in distributed systems
+Handles clock drift
+Efficient synchronization mechanism
+No external UTC clock required
+10. Limitations
+Single point failure at master
+Network delay affects accuracy
+Complex in large systems
+Faulty clocks may affect average time
+11. Important Viva Questions and Answers
+Q1. What is Berkeley Algorithm?
+
+Berkeley Algorithm is a clock synchronization method used in distributed systems.
+
+Example:
+
+Synchronizing server clocks in data centers.
+
+Q2. What is clock synchronization?
+
+Clock synchronization means maintaining same time across distributed systems.
+
+Example:
+
+All banking servers showing same transaction time.
+
+Q3. What is clock drift?
+
+Clock drift is gradual difference in time between system clocks.
+
+Example:
+
+One computer clock running faster than another.
+
+Q4. What is the role of master server?
+
+Master server collects times and calculates synchronization adjustments.
+
+Example:
+
+Central server coordinating all nodes.
+
+Q5. Why is synchronization important?
+
+Synchronization ensures consistency and proper event ordering.
+
+Example:
+
+Distributed database transactions.
+
+Q6. Does Berkeley Algorithm use UTC time?
+
+No, it uses average system time instead of external UTC reference.
+
+Example:
+
+Internal network synchronization.
+
+Q7. What is distributed system timing problem?
+
+Different systems may show different local times.
+
+Example:
+
+Unsynchronized servers.
+
+Q8. What is time adjustment?
+
+Correction value added or subtracted from system clock.
+
+Example:
+
+Adjusting clock by +2 seconds.
+
+Q9. What is network delay?
+
+Delay during communication between systems.
+
+Example:
+
+Late arrival of synchronization message.
+
+Q10. What are applications of Berkeley Algorithm?
+
+Used in distributed computing and server synchronization.
+
+Example:
+
+Cloud server management.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between Berkeley Algorithm and Cristian’s Algorithm?
+
+Berkeley uses average system time while Cristian’s uses external time server.
+
+Example:
+
+Internal vs external synchronization.
+
+Q2. What happens if master server fails?
+
+Synchronization process stops because master controls coordination.
+
+Example:
+
+No time correction messages sent.
+
+Q3. How is average time calculated?
+
+Master computes mean of all system times excluding abnormal clocks.
+
+Example:
+
+Average of node times.
+
+Q4. What is synchronization error?
+
+Difference between actual and synchronized time.
+
+Example:
+
+Clock mismatch due to delay.
+
+Q5. What is scalability issue in Berkeley Algorithm?
+
+Performance decreases with large number of systems.
+
+Example:
+
+Many nodes increasing communication overhead.
+
+Q6. What is fault tolerance?
+
+Ability to continue functioning despite failures.
+
+Example:
+
+Handling failed system nodes.
+
+Q7. Why are faulty clocks ignored?
+
+Faulty clocks produce incorrect average values.
+
+Example:
+
+Node showing completely wrong time.
+
+Q8. What type of architecture is used?
+
+Master-slave architecture is used.
+
+Example:
+
+One coordinator controlling many nodes.
+
+Q9. What are synchronization messages?
+
+Messages exchanged for time correction.
+
+Example:
+
+Time polling request.
+
+Q10. Why is time consistency important in distributed systems?
+
+It maintains proper ordering of events and transactions.
+
+Example:
+
+Correct banking transaction sequence.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+Practical 5: Implement Token Ring Based Mutual Exclusion Algorithm
+1. Aim
+To implement Token Ring based Mutual Exclusion Algorithm for controlling access to shared resources in distributed systems.
+
+2. Explanation of Practical
+What is Token Ring Mutual Exclusion?
+Token Ring Mutual Exclusion is a distributed algorithm used to ensure that only one process accesses the critical section at a time.
+
+In this algorithm:
+
+Processes are connected in logical ring structure.
+
+A special message called token circulates in the ring.
+
+Only the process holding the token can enter critical section.
+
+This prevents simultaneous access to shared resources.
+
+3. Outcome of Practical
+After performing this practical, we can:
+
+Understand mutual exclusion in distributed systems.
+
+Learn token-based synchronization.
+
+Implement critical section management.
+
+Prevent race conditions.
+
+Understand process coordination.
+
+4. Usage of Token Ring Algorithm
+Used in:
+
+Distributed operating systems
+
+Network communication systems
+
+Resource sharing systems
+
+Printer sharing
+
+Distributed databases
+
+It ensures safe access to shared resources.
+
+5. How it is Implemented
+Important Steps
+1. Create Logical Ring
+Processes are connected in circular manner.
+
+2. Generate Token
+A unique token is passed among processes.
+
+3. Token Request
+Process waits for token to access critical section.
+
+4. Enter Critical Section
+Only token holder enters critical section.
+
+5. Pass Token
+After execution, token is forwarded to next process.
+
+6. Working of Token Ring Algorithm
+Process Ring
+P1 → P2 → P3 → P4
+↑               ↓
+← ← ← Token ← ← ←
+
+Token Holder
+      ↓
+Access Critical Section
+      ↓
+Pass Token to Next Process
+7. Technologies Used
+Distributed Systems
+
+Java/C/C++
+
+Networking Concepts
+
+Process Synchronization
+
+Mutual Exclusion Algorithms
+
+8. Real Life Examples
+1. Printer Sharing Systems
+Only one user accesses printer at a time.
+
+Example:
+Office network printer access.
+
+2. Database Transactions
+Prevents simultaneous modification of same data.
+
+3. Distributed File Systems
+Controls file access among multiple users.
+
+4. Network Communication
+Token passing used in communication networks.
+
+Example:
+IBM Token Ring Network.
+
+9. Advantages
+Prevents deadlock
+
+Fair access to processes
+
+No starvation
+
+Simple implementation
+
+Ordered token passing
+
+10. Limitations
+Token loss problem
+
+Ring failure affects system
+
+Delay in large networks
+
+Single token dependency
+
+11. Important Viva Questions and Answers
+Q1. What is mutual exclusion?
+Mutual exclusion ensures only one process accesses shared resource at a time.
+
+Example:
+Single printer access.
+
+Q2. What is Token Ring Algorithm?
+It is a token-based mutual exclusion algorithm using logical ring structure.
+
+Example:
+Processes passing token sequentially.
+
+Q3. What is token?
+Token is special permission message allowing process to enter critical section.
+
+Example:
+Process holding token accessing resource.
+
+Q4. What is critical section?
+Critical section is code segment accessing shared resource.
+
+Example:
+Updating shared database file.
+
+Q5. Why is token important?
+Without token, process cannot access critical section.
+
+Example:
+Only authorized process enters resource area.
+
+Q6. What is logical ring?
+Processes are virtually connected in circular structure.
+
+Example:
+P1 → P2 → P3 → P1.
+
+Q7. What is race condition?
+Race condition occurs when multiple processes access shared resource simultaneously.
+
+Example:
+Two users editing same file.
+
+Q8. What is starvation?
+A process continuously waiting without getting resource access.
+
+Example:
+Process never receiving token.
+
+Q9. What happens if token is lost?
+No process can enter critical section until token regenerated.
+
+Example:
+Communication failure causing token loss.
+
+Q10. What are applications of token ring?
+Used in resource sharing and distributed synchronization.
+
+Example:
+Network printer management.
+
+12. Important Technical Questions for External Examiner
+Q1. Why is Token Ring Algorithm deadlock free?
+Only token holder enters critical section, preventing circular waiting.
+
+Example:
+Single token controlling access.
+
+Q2. Difference between centralized and token-based mutual exclusion?
+Centralized uses coordinator while token-based uses circulating token.
+
+Example:
+Server permission vs token passing.
+
+Q3. What is token regeneration?
+Creating new token when original token is lost.
+
+Example:
+System recovering from communication failure.
+
+Q4. What is synchronization in distributed systems?
+Coordination among processes for proper execution.
+
+Example:
+Controlled shared resource access.
+
+Q5. What is fairness in token ring?
+Every process gets equal chance to access critical section.
+
+Example:
+Sequential token passing.
+
+Q6. Why is logical ring used?
+It provides ordered token circulation among processes.
+
+Example:
+Fixed token passing sequence.
+
+Q7. What is throughput?
+Number of processes completed in given time.
+
+Example:
+Processes accessing critical section efficiently.
+
+Q8. What is communication overhead?
+Extra communication required for token passing.
+
+Example:
+Sending token messages.
+
+Q9. What is distributed synchronization?
+Coordinating processes running on different systems.
+
+Example:
+Shared database access control.
+
+Q10. Why is mutual exclusion necessary?
+It prevents data inconsistency and resource conflicts.
+
+Example:
+Simultaneous bank account updates.
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+Practical 6(A): Implement Bully Algorithm for Leader Election
+1. Aim
+
+To implement the Bully Algorithm for leader election in a distributed system.
+
+2. Explanation of Practical
+What is Bully Algorithm?
+
+Bully algorithm is a distributed election algorithm used to choose a coordinator (leader) among multiple processes.
+
+Key idea:
+
+Each process has a unique process ID.
+The process with the highest active ID becomes leader.
+If the coordinator fails, another process starts election.
+Higher ID processes override lower ID processes during election.
+
+It is called “Bully” because the highest-ID process always takes control.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand leader election in distributed systems.
+Learn coordinator selection process.
+Detect process failure.
+Elect new leader automatically.
+Understand fault handling in distributed systems.
+4. Usage of Bully Algorithm
+
+Used in:
+
+Distributed systems
+Cluster management
+Cloud systems
+Distributed databases
+Network coordination
+
+It helps automatically elect coordinator when current leader fails.
+
+5. How it is Implemented
+Important Steps
+1. Detect Coordinator Failure
+
+A process identifies that current leader is not responding.
+
+2. Start Election
+
+The process sends election message to all processes having higher IDs.
+
+3. Response from Higher Process
+
+If higher process is alive, it replies and starts election itself.
+
+4. Highest Active Process Wins
+
+Highest process ID becomes coordinator.
+
+5. Announce New Leader
+
+New leader sends coordinator message to all processes.
+
+6. Working of Bully Algorithm
+Processes: P1 P2 P3 P4 P5
+
+Suppose P5 fails
+
+P2 starts election
+   ↓
+Election message to P3, P4, P5
+   ↓
+P4 replies
+   ↓
+P4 becomes leader
+   ↓
+Coordinator message sent to all
+7. Technologies Used
+Java/Python/C++
+Distributed Systems
+Socket Communication
+Networking Concepts
+Process Management
+8. Real Life Examples
+1. Database Clusters
+
+Leader selected for transaction management.
+
+Example:
+
+MySQL Cluster primary node selection.
+
+2. Cloud Systems
+
+Master node selection among servers.
+
+Example:
+
+Kubernetes control plane leader.
+
+3. Distributed File Systems
+
+Coordinator manages file synchronization.
+
+4. Server Management
+
+Leader controls service scheduling.
+
+9. Advantages
+Simple implementation
+Fast election
+Automatic failure recovery
+Suitable for small systems
+Reliable coordinator selection
+10. Limitations
+More message overhead
+Not suitable for very large systems
+Depends on process IDs
+Higher network traffic
+11. Important Viva Questions and Answers
+Q1. What is Bully Algorithm?
+
+Bully Algorithm elects leader in distributed systems by selecting highest active process ID.
+
+Example:
+
+Among P1–P5, P5 becomes leader.
+
+Q2. Why is it called Bully Algorithm?
+
+Because higher ID process dominates lower ID processes during election.
+
+Example:
+
+P6 overrides election started by P2.
+
+Q3. What is leader election?
+
+It is the process of selecting one coordinator process.
+
+Example:
+
+Master server selection.
+
+Q4. What is coordinator?
+
+Coordinator is process that controls distributed tasks.
+
+Example:
+
+Primary database server.
+
+Q5. When does election start?
+
+Election starts when current coordinator fails.
+
+Example:
+
+Leader crash detection.
+
+Q6. Which process becomes leader?
+
+Highest active process ID becomes leader.
+
+Example:
+
+P8 selected among active nodes.
+
+Q7. What is election message?
+
+Message sent to initiate leader selection.
+
+Example:
+
+P2 sending election to P3 and P4.
+
+Q8. What is fault tolerance?
+
+System’s ability to continue after failures.
+
+Example:
+
+Automatic leader replacement.
+
+Q9. What is process ID?
+
+Unique number assigned to each process.
+
+Example:
+
+P1, P2, P3.
+
+Q10. What are applications?
+
+Used in distributed systems and cluster management.
+
+Example:
+
+Cloud server coordination.
+
+12. Important Technical Questions for External Examiner
+Q1. What happens if highest process fails?
+
+Next highest active process becomes leader.
+
+Example:
+
+P5 fails, P4 becomes leader.
+
+Q2. How is failure detected?
+
+By timeout or no response from coordinator.
+
+Example:
+
+Leader not replying to request.
+
+Q3. Why are higher IDs preferred?
+
+They ensure unique and consistent leader selection.
+
+Example:
+
+P9 preferred over P4.
+
+Q4. What is message overhead?
+
+Extra messages exchanged during election.
+
+Example:
+
+Election notifications.
+
+Q5. Is Bully Algorithm centralized?
+
+No, it is distributed election.
+
+Example:
+
+Any process can start election.
+
+Q6. What if two processes start election simultaneously?
+
+Higher process eventually wins.
+
+Example:
+
+P2 and P3 both initiate election.
+
+Q7. Why is it efficient for small systems?
+
+Fewer processes reduce communication overhead.
+
+Example:
+
+5-node cluster.
+
+Q8. What is timeout in Bully Algorithm?
+
+Waiting period for response from coordinator.
+
+Example:
+
+Leader failure detection.
+
+Q9. Can lower process become leader?
+
+Only if all higher processes fail.
+
+Example:
+
+P2 elected when P3–P5 fail.
+
+Q10. Why is leader election important?
+
+It ensures system coordination after failures.
+
+Example:
+
+Distributed transaction management.
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+Practical 6(B): Implement Ring Algorithm for Leader Election
+1. Aim
+
+To implement the Ring algorithm for leader election in a distributed system.
+
+2. Explanation of Practical
+What is Ring Algorithm?
+
+Ring Algorithm is a distributed leader election method where all processes are arranged in a logical ring.
+
+Key idea:
+
+Each process has a unique process ID.
+Election message moves in circular order.
+Every process adds its ID to the election message.
+Highest process ID is selected as leader.
+New coordinator is announced to all processes.
+
+This ensures orderly leader selection.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand distributed leader election.
+Learn logical ring communication.
+Implement coordinator selection.
+Understand process synchronization.
+Handle leader failure in distributed systems.
+4. Usage of Ring Algorithm
+
+Used in:
+
+Distributed operating systems
+Cloud systems
+Network communication
+Cluster computing
+Distributed databases
+
+It helps elect a coordinator when current leader fails.
+
+5. How it is Implemented
+Important Steps
+1. Arrange Processes in Ring
+
+Processes are connected in circular structure.
+
+2. Detect Leader Failure
+
+Any process detects coordinator failure.
+
+3. Start Election
+
+Election message is passed to next process in ring.
+
+4. Compare IDs
+
+Highest process ID is identified.
+
+5. Announce Coordinator
+
+Leader message circulates in ring.
+
+6. Working of Ring Algorithm
+P1 → P2 → P3 → P4 → P5
+↑                   ↓
+← ← ← Election ← ← ←
+
+Highest ID Selected
+        ↓
+Coordinator Message
+7. Technologies Used
+Java/Python/C++
+Distributed Systems
+Networking Concepts
+Socket Communication
+Process Coordination
+8. Real Life Examples
+1. Cluster Systems
+
+Leader selected for managing distributed nodes.
+
+Example:
+
+Apache Hadoop node coordination.
+
+2. Cloud Management
+
+Coordinator handles distributed services.
+
+Example:
+
+Apache ZooKeeper leader coordination.
+
+3. Distributed Databases
+
+Leader manages transactions.
+
+4. Resource Allocation Systems
+
+Coordinator controls resource access.
+
+9. Advantages
+Fair process participation
+Ordered communication
+Reliable election
+Suitable for ring topology
+No central coordinator required
+10. Limitations
+Slow for large systems
+Ring failure affects election
+More delay in communication
+Sequential message passing
+11. Important Viva Questions and Answers
+Q1. What is Ring Algorithm?
+
+Ring Algorithm elects leader by circulating election message in ring structure.
+
+Example:
+
+P5 elected among P1–P5.
+
+Q2. What is logical ring?
+
+Processes are connected in circular communication structure.
+
+Example:
+
+P1 → P2 → P3 → P1.
+
+Q3. What is leader election?
+
+Selecting one process as coordinator among multiple processes.
+
+Example:
+
+Master node selection.
+
+Q4. Which process becomes leader?
+
+Highest active process ID becomes leader.
+
+Example:
+
+P8 selected over P4.
+
+Q5. What is election message?
+
+Message used to initiate coordinator selection.
+
+Example:
+
+Process sending ID around ring.
+
+Q6. What is coordinator message?
+
+Message informing all processes about new leader.
+
+Example:
+
+P5 announced as coordinator.
+
+Q7. What happens if leader fails?
+
+Election process starts automatically.
+
+Example:
+
+Backup coordinator selection.
+
+Q8. What is process ID?
+
+Unique identifier of process.
+
+Example:
+
+P1, P2, P3.
+
+Q9. What is distributed coordination?
+
+Managing tasks among distributed processes.
+
+Example:
+
+Cluster management.
+
+Q10. What are applications?
+
+Used in distributed systems and server clusters.
+
+Example:
+
+Cloud systems.
+
+12. Important Technical Questions for External Examiner
+Q1. Why is ring structure used?
+
+It ensures orderly communication among processes.
+
+Example:
+
+Sequential message passing.
+
+Q2. What happens if ring breaks?
+
+Election may fail due to broken communication path.
+
+Example:
+
+Disconnected process.
+
+Q3. Why highest ID is selected?
+
+Ensures unique leader selection.
+
+Example:
+
+P7 preferred over P3.
+
+Q4. Is Ring Algorithm centralized?
+
+No, it is decentralized.
+
+Example:
+
+Any process can initiate election.
+
+Q5. What is communication overhead?
+
+Extra communication during election.
+
+Example:
+
+Passing election messages.
+
+Q6. Can multiple processes start election?
+
+Yes, but final highest process wins.
+
+Example:
+
+P2 and P4 both start election.
+
+Q7. What is fault tolerance?
+
+System continues after process failure.
+
+Example:
+
+New leader after crash.
+
+Q8. Why is Ring slower than Bully?
+
+Because message must circulate entire ring.
+
+Example:
+
+Large number of processes.
+
+Q9. What is scalability?
+
+Ability to work efficiently with many processes.
+
+Example:
+
+Large distributed network.
+
+Q10. Why is leader election needed?
+
+To coordinate distributed processes.
+
+Example:
+
+Resource management in clusters.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Practical 7: Create a Simple Web Service and Consume it using Distributed Application
+1. Aim
+To create a simple web service and develop a distributed application to consume the web service.
+
+2. Explanation of Practical
+What is Web Service?
+A Web Service is a software component that allows communication between applications over a network using standard web protocols.
+
+It enables:
+
+Data exchange
+
+Remote service access
+
+Interoperability between applications
+
+In this practical:
+
+Server provides web service.
+
+Client consumes the service remotely.
+
+Example:
+
+Calculator service
+
+Weather service
+
+String operations service
+
+3. Outcome of Practical
+After performing this practical, we can:
+
+Understand web service architecture.
+
+Learn service provider and consumer model.
+
+Implement distributed communication using web services.
+
+Understand client-server interaction.
+
+Learn remote data exchange.
+
+4. Usage of Web Services
+Used in:
+
+Cloud computing
+
+E-commerce systems
+
+Mobile applications
+
+Banking applications
+
+Distributed enterprise systems
+
+It helps applications communicate over internet/network.
+
+5. How it is Implemented
+Important Steps
+1. Create Web Service
+Define service methods.
+
+Deploy service on server.
+
+Example:
+
+add()
+
+multiply()
+
+stringReverse()
+
+2. Publish Web Service
+Service is hosted using server or web container.
+
+3. Create Client Application
+Client sends request to web service.
+
+4. Consume Service
+Client receives and processes response from server.
+
+5. Display Result
+Output from service displayed at client side.
+
+6. Working of Web Service
+Client Application
+        ↓
+Request Sent over Network
+        ↓
+Web Service Server
+        ↓
+Service Execution
+        ↓
+Response Returned to Client
+7. Technologies Used
+Web Services
+
+HTTP Protocol
+
+SOAP/REST
+
+Java/Python
+
+Distributed Systems
+
+8. Real Life Examples
+1. Online Payment Systems
+Applications use payment gateway web services.
+
+Example:
+UPI payment processing.
+
+2. Weather Applications
+Apps fetch weather data using APIs.
+
+3. Google Maps
+Applications consume map services remotely.
+
+4. E-Commerce Applications
+Product and payment services communicate through APIs.
+
+9. Advantages
+Platform independent
+
+Easy communication over network
+
+Reusable services
+
+Supports distributed computing
+
+Interoperability between applications
+
+10. Limitations
+Network dependency
+
+Security risks
+
+Slower than local communication
+
+Requires internet/network connectivity
+
+11. Important Viva Questions and Answers
+Q1. What is a web service?
+A web service is software that enables communication between applications over network.
+
+Example:
+Online payment API.
+
+Q2. What is distributed application?
+Application running on multiple systems connected through network.
+
+Example:
+Client-server web application.
+
+Q3. What protocol is commonly used in web services?
+HTTP protocol is commonly used.
+
+Example:
+Browser-server communication.
+
+Q4. What is SOAP?
+SOAP stands for Simple Object Access Protocol used for web service communication.
+
+Example:
+XML-based messaging.
+
+Q5. What is REST?
+REST stands for Representational State Transfer used for lightweight web services.
+
+Example:
+REST API in web applications.
+
+Q6. What is service consumer?
+Client application using web service.
+
+Example:
+Mobile app calling weather API.
+
+Q7. What is interoperability?
+Different applications communicating regardless of platform or language.
+
+Example:
+Java client accessing Python service.
+
+Q8. What is API?
+API stands for Application Programming Interface used for application communication.
+
+Example:
+Google Maps API.
+
+Q9. What is request-response model?
+Client sends request and server returns response.
+
+Example:
+Fetching weather data.
+
+Q10. What are applications of web services?
+Used in banking, e-commerce, cloud systems, and mobile apps.
+
+Example:
+Online shopping applications.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between SOAP and REST?
+SOAP uses XML and strict standards while REST is lightweight and flexible.
+
+Example:
+REST APIs in modern web apps.
+
+Q2. What is WSDL?
+WSDL stands for Web Service Description Language describing web service methods.
+
+Example:
+Service operation definitions.
+
+Q3. What is endpoint in web service?
+Endpoint is URL where web service is available.
+
+Example:
+API URL.
+
+Q4. Why are web services platform independent?
+They use standard protocols like HTTP and XML/JSON.
+
+Example:
+Cross-platform communication.
+
+Q5. What is XML?
+XML stands for Extensible Markup Language used for data exchange.
+
+Example:
+SOAP messages.
+
+Q6. What is JSON?
+JSON stands for JavaScript Object Notation used for lightweight data transfer.
+
+Example:
+REST API responses.
+
+Q7. What is client-server architecture?
+Client requests services and server provides services.
+
+Example:
+Web browser and web server.
+
+Q8. What is stateless communication in REST?
+Server does not store client session information.
+
+Example:
+Independent API requests.
+
+Q9. What are APIs used for?
+APIs enable communication between software applications.
+
+Example:
+Payment gateway integration.
+
+Q10. Why are web services important in distributed systems?
+They enable remote communication and interoperability.
+
+Example:
+Cloud-based applications.
+
+

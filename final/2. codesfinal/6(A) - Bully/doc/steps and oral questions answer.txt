@@ -1,0 +1,170 @@
+﻿Assignment 6: Implement Bully and Ring algorithm for leader election.  
+
+  
+
+Bully Algorithm Steps (Java) 
+Step 1: Open VS Code 
+Install Java Extension Pack. 
+
+ 
+Step 2: Create Java File 
+Create file: 
+Bully.java 
+Paste the Bully Algorithm Java code and save the file. 
+
+ 
+Step 3: Compile Program 
+Open terminal in VS Code and run: 
+javac Bully.java 
+
+ 
+Step 4: Run Program 
+java Bully 
+
+ 
+Ring Algorithm Steps (Java) 
+Step 1: Create Java File 
+Create file: 
+Ring.java 
+Paste the Ring Algorithm Java code and save the file. 
+
+ 
+Step 2: Compile Program 
+javac Ring.java 
+
+ 
+Step 3: Run Program 
+java Ring 
+
+ 
+Viva Questions and Answers for Bully and Ring Algorithm 
+1. What is Leader Election Algorithm? 
+Leader election algorithm selects one process as coordinator/leader in a distributed system. 
+
+ 
+2. What is a coordinator process? 
+Coordinator is the process that controls and manages distributed activities. 
+
+ 
+3. Why is leader election needed? 
+Leader election is needed when the current coordinator fails or crashes. 
+
+ 
+4. What is Bully Algorithm? 
+Bully Algorithm elects the process with the highest process ID as coordinator. 
+
+
+
+ 
+5. Why is it called Bully Algorithm? 
+Because higher priority processes dominate lower priority processes. 
+
+ 
+6. What is Ring Algorithm? 
+Ring Algorithm arranges processes in a logical ring and passes election messages around the 
+ring. 
+
+ 
+7. Which process becomes leader in both algorithms? 
+The process with the highest ID becomes leader. 
+
+ 
+8. What happens if coordinator crashes? 
+A new election process starts automatically. 
+
+ 
+9. What is process ID? 
+A unique number assigned to each process. 
+Example: 
+1, 2, 3, 4, 5 
+
+ 
+10. How does Bully Algorithm work? 
+
+• Process detects coordinator failure  
+• Sends election message to higher ID processes  
+• Highest active process becomes coordinator  
+
+ 
+11. How does Ring Algorithm work? 
+
+• Election message circulates in ring structure  
+• Highest process ID is selected as leader  
+
+ 
+12. Which algorithm is faster? 
+Bully Algorithm 
+
+ 
+13. Which algorithm has less message overhead? 
+Ring Algorithm 
+
+ 
+14. What is message overhead? 
+Number of messages exchanged during communication. 
+
+ 
+15. What is distributed system? 
+A distributed system is a group of computers/processes working together. 
+
+ 
+16. Advantages of Bully Algorithm 
+
+• Fast election  
+• Easy implementation  
+
+
+
+ 
+17. Disadvantages of Bully Algorithm 
+
+• High message overhead  
+• Not efficient for large systems  
+
+ 
+18. Advantages of Ring Algorithm 
+
+• Organized communication  
+• Less message collision  
+
+ 
+19. Disadvantages of Ring Algorithm 
+
+• Slower than Bully Algorithm  
+• Ring failure affects communication  
+
+ 
+20. What is ring topology? 
+A network structure where processes are connected in circular form. 
+
+ 
+21. What is the output of your Bully Algorithm program? 
+Coordinator Process is: 5 
+New Coordinator is: 4 
+
+ 
+22. What is the output of your Ring Algorithm program? 
+Leader elected is: 4 
+
+ 
+23. Which language is used in your program? 
+Java 
+
+ 
+24. Real-life applications of leader election 
+
+• Distributed databases  
+• Cloud computing  
+• Distributed operating systems  
+• Network servers  
+
+ 
+25. Difference between Bully and Ring Algorithm 
+
+Bully Algorithm Ring Algorithm 
+
+Faster Slower 
+
+More messages Fewer messages 
+
+Direct election Ring communication

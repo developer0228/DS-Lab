@@ -1,0 +1,281 @@
+Practical 2: Develop Distributed Application using CORBA to Demonstrate Object Brokering
+
+(Calculator or String Operations)
+
+1. Aim
+
+To develop a distributed application using CORBA (Common Object Request Broker Architecture) for remote object communication between client and server.
+
+2. Explanation of Practical
+What is CORBA?
+
+CORBA stands for Common Object Request Broker Architecture.
+It is a middleware technology used for communication between distributed objects written in different programming languages and running on different platforms.
+
+CORBA uses an ORB (Object Request Broker) to establish communication between client and server objects.
+
+In this practical:
+
+Server provides remote services.
+Client accesses those services remotely.
+ORB acts as middleware for communication.
+
+Example:
+
+Calculator operations
+String operations
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand object brokering in distributed systems.
+Learn CORBA architecture and ORB working.
+Implement distributed client-server communication.
+Understand remote object invocation.
+Learn middleware-based communication.
+4. Usage of CORBA
+
+CORBA is used for:
+
+Distributed enterprise applications
+Banking systems
+Telecommunication systems
+Distributed object communication
+Heterogeneous system integration
+
+It helps different applications communicate even if they use different languages or platforms.
+
+5. How it is Implemented
+Important Steps
+1. Define IDL
+
+IDL (Interface Definition Language) defines remote methods.
+
+Example:
+
+add()
+subtract()
+stringReverse()
+2. Generate Stub and Skeleton
+
+IDL compiler generates:
+
+Stub (client side)
+Skeleton (server side)
+3. Implement Server
+Create servant class.
+Register object with ORB.
+4. Create Client
+Client accesses remote object through ORB.
+Invokes remote methods.
+5. Communication through ORB
+
+ORB acts as broker between client and server objects.
+
+6. Working of CORBA
+Client
+   ↓
+ORB (Object Request Broker)
+   ↓
+Remote Server Object
+   ↓
+Response Returned
+7. Technologies Used
+Java CORBA
+ORB
+IDL Compiler
+Distributed System Concepts
+Client-Server Architecture
+8. Real Life Examples
+1. Banking Systems
+
+Used for communication between distributed banking servers.
+
+Example:
+
+ATM interacting with bank database server.
+
+2. Telecom Systems
+
+Distributed telecom services communicate using middleware.
+
+3. Air Reservation Systems
+
+Remote ticket booking systems communicate across servers.
+
+4. Enterprise Applications
+
+Large companies integrate multiple systems using CORBA.
+
+9. Advantages of CORBA
+Platform independent
+Language independent
+Supports distributed computing
+Reusable objects
+Easy integration of heterogeneous systems
+10. Limitations
+Complex architecture
+Higher overhead
+Difficult debugging
+Slower performance compared to modern lightweight systems
+11. Important Viva Questions and Answers
+Q1. What is CORBA?
+
+CORBA is middleware architecture used for communication between distributed objects in different systems.
+
+Example:
+
+Client remotely accessing calculator server.
+
+Q2. What is ORB?
+
+ORB stands for Object Request Broker. It manages communication between client and server objects.
+
+Example:
+
+ORB forwarding client request to server.
+
+Q3. What is IDL?
+
+IDL stands for Interface Definition Language. It defines remote methods for communication.
+
+Example:
+
+Defining add() method for calculator service.
+
+Q4. What is object brokering?
+
+Object brokering means managing communication between distributed objects using middleware.
+
+Example:
+
+ORB connecting client and remote server object.
+
+Q5. Why is CORBA platform independent?
+
+CORBA supports communication across different operating systems and languages.
+
+Example:
+
+Java client communicating with C++ server.
+
+Q6. What is middleware?
+
+Middleware is software that connects distributed applications.
+
+Example:
+
+CORBA ORB acting between client and server.
+
+Q7. What is stub in CORBA?
+
+Stub is client-side proxy object used for remote communication.
+
+Example:
+
+Client invoking remote add() method through stub.
+
+Q8. What is skeleton in CORBA?
+
+Skeleton receives client requests on server side and forwards them to actual object.
+
+Example:
+
+Server processing calculator operation request.
+
+Q9. What is distributed application?
+
+A distributed application runs on multiple systems connected over network.
+
+Example:
+
+Online banking application.
+
+Q10. What are advantages of CORBA?
+
+CORBA provides interoperability, distributed communication, and platform independence.
+
+Example:
+
+Enterprise distributed systems.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between CORBA and RMI?
+
+CORBA supports multiple languages while RMI mainly supports Java.
+
+Example:
+
+CORBA supports Java-C++ communication.
+
+Q2. What is servant class in CORBA?
+
+Servant class implements remote methods defined in IDL.
+
+Example:
+
+Calculator implementation class.
+
+Q3. What is remote object invocation?
+
+Calling methods of objects located on another machine remotely.
+
+Example:
+
+Client calling remote add() function.
+
+Q4. What protocol is used in CORBA?
+
+CORBA uses IIOP (Internet Inter-ORB Protocol).
+
+Example:
+
+Communication between distributed ORBs.
+
+Q5. Why is IDL important?
+
+IDL provides language-independent interface definition.
+
+Example:
+
+Same interface usable in Java and C++.
+
+Q6. What is interoperability?
+
+Interoperability means different systems working together.
+
+Example:
+
+Linux server communicating with Windows client.
+
+Q7. Can CORBA support heterogeneous systems?
+
+Yes, CORBA supports different platforms and programming languages.
+
+Example:
+
+Java and Python distributed systems.
+
+Q8. What happens if ORB fails?
+
+Communication between client and server stops.
+
+Example:
+
+Remote method invocation failure.
+
+Q9. What is client-server architecture in CORBA?
+
+Client requests services and server provides remote services through ORB.
+
+Example:
+
+Remote calculator application.
+
+Q10. Why is CORBA used in distributed systems?
+
+CORBA enables standardized communication between distributed objects.
+
+Example:
+
+Enterprise business applications.

@@ -1,0 +1,282 @@
+﻿Assignment 1 : Implement multi-threaded client/server Process communication using RMI.  
+
+ 
+
+Terminal Set up : 
+
+1. Open terminal and check java version is 21 : javac --version 
+2. Run : sudo update- -alternative - -config java → then select option of java of 21 version using 0,1or 2 
+depends 
+3. Run : sudo update- -alternative - -config javac → then select option of java of 21 version using 0,1or 2 
+depends 
+4. Run : sudo apt update 
+5. Then follow below steps for program 
+
+6. Create Files  
+
+Create 4 Java files:  
+
+• Hello.java   
+
+• HelloImpl.java   
+
+• Server.java   
+
+• Client.java  
+
+7. Steps for terminal   
+
+Step 1: Open terminal and create new folder   
+
+cd Desktop 
+mkdir RMI cd 
+RMI  
+
+Step 2 : Create 4 files  touch Hello.java HelloImpl.java 
+
+Server.java Client.java  
+
+Step 3: Compiles all files  
+
+Compile Java Files  javac *.java  
+
+Step 4:  Run Server  
+
+Open Terminal 1:  java Server  
+
+Step 5: Run Client  
+
+Open Terminal 2: cd 
+
+Desktop/RMI   java Client  
+
+
+
+1. Check Java Installation  
+
+Open terminal and type: 
+
+java --version and javac 
+
+--version  
+  First Check This and then create file  
+
+If Java is installed, you will see version output like:  Viva Questions & Answers for RMI Assignment  
+
+openjdk 17  1. What is Distributed System?  
+
+2. If Java is NOT Installed  
+A distributed system is a collection of multiple computers 
+
+Install Java JDK using:  that communicate and work together as a single system.  
+
+sudo apt update  
+sudo apt install default-jdk -y  
+
+3. Verify Installation java --version  
+
+javac –version                                                                                
+
+  
+
+2. What is RMI in Java?  
+
+RMI stands for Remote Method Invocation.  
+It allows a Java program to call methods of an object located on another machine.  
+
+  
+
+3. What is the use of RMI?  
+
+RMI is used for communication between client and server applications in distributed systems.  
+
+  
+
+4. What are the main components of RMI?  
+
+• Remote Interface   
+
+• Remote Object (Implementation Class)   
+
+• Server   
+
+• Client   
+
+• RMI Registry   
+
+  
+
+5. What is a Remote Interface?  
+
+A remote interface defines methods that can be called remotely by the client.  
+
+Example:  
+
+public interface Hello extends Remote  
+
+  
+
+6. Why do we extend Remote interface?  
+
+To make methods accessible remotely.  
+
+  
+
+
+
+7. Why is RemoteException used?  
+
+It handles communication/network-related errors during remote method calls.  
+
+  
+
+8. What is UnicastRemoteObject?  
+
+It is a class used to export a remote object so that it can receive incoming remote calls.  
+
+  
+9. What is RMI Registry?  
+
+RMI Registry stores remote objects with names so clients can find them.  
+
+Default port:  
+
+1099  
+
+  
+
+10. What does rebind() do?  
+
+It binds or registers the remote object with the RMI registry.  
+
+Example:  
+
+reg.rebind("HelloService", obj);  
+
+  
+
+11. What does lookup() do?  
+
+Client uses lookup() to search and access the remote object from registry.  
+
+  
+
+12. Why multi-threading is used in this assignment?  
+
+Multi-threading allows multiple clients to communicate with the server simultaneously.  
+
+  
+
+13. What is a Thread?  
+
+A thread is a lightweight process used for parallel execution.  
+
+  
+
+14. Which class is used for multi-threading in your code?  
+
+class ClientThread extends Thread  
+
+  
+
+15. What is the role of server in RMI?  
+
+The server creates and registers remote objects for clients.  
+
+  
+
+16. What is the role of client in RMI?  
+
+The client accesses remote objects and invokes methods remotely.  
+
+  
+
+
+
+17. Which protocol is used in RMI?  
+
+TCP/IP protocol is used internally.  
+
+  
+
+18. Difference between RMI and Socket Programming?  
+
+RMI  Socket  
+
+High-level communication Low-level communication  
+
+Supports remote methods Supports data transfer only  
+
+Easier in Java  More coding required  
+
+  
+
+19. Advantages of RMI  
+
+• Easy distributed communication   
+
+• Object-oriented approach   
+
+• Supports multi-threading   
+
+• Secure and scalable   
+
+  
+
+20. Disadvantages of RMI  
+
+• Java dependent   
+
+• Slower than local calls   
+
+• Requires network connectivity   
+
+  
+
+21. What is the output of your assignment?  
+
+Server handles multiple client requests and returns messages like:  
+
+Hello Client-1 from Server  
+
+  
+
+22. What happens if server is not running?  
+
+Client gets connection error because remote object is unavailable.  
+
+  
+
+23. Why synchronized method is used? public synchronized String message()  
+
+It prevents multiple threads from accessing the method at the same time.  
+
+  
+
+24. What is the difference between process and thread?  
+
+Process  Thread  
+
+Heavyweight  Lightweight  
+
+
+
+Separate memory Shared memory  
+
+Process  Thread  
+
+Slower  Faster  
+
+  
+
+25. Real-life examples of Distributed Systems  
+
+• Google Search Engine   
+
+• Banking Systems   
+
+• Cloud Computing   
+
+• Online Games   
+
+• ATM Network

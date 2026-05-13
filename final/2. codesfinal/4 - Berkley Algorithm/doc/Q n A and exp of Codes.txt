@@ -1,0 +1,270 @@
+Practical 4: Implement Berkeley Algorithm for Clock Synchronization
+1. Aim
+
+To implement Berkeley Algorithm for synchronizing clocks in distributed systems.
+
+2. Explanation of Practical
+What is Berkeley Algorithm?
+
+Berkeley Algorithm is a clock synchronization algorithm used in distributed systems where one system acts as a master server and synchronizes time among all connected systems.
+
+The master system:
+
+Collects time from all systems
+Calculates average time
+Sends adjustment values to all systems
+
+This ensures all clocks remain approximately synchronized.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand clock synchronization concepts.
+Learn distributed system time management.
+Implement Berkeley synchronization algorithm.
+Understand time coordination among distributed nodes.
+Learn master-slave synchronization mechanism.
+4. Usage of Berkeley Algorithm
+
+Used in:
+
+Distributed systems
+Banking servers
+Airline reservation systems
+Distributed databases
+Network management systems
+
+It helps maintain consistent system time across multiple machines.
+
+5. How it is Implemented
+Important Steps
+1. Master Polls All Systems
+
+Master server requests current time from all nodes.
+
+2. Time Collection
+
+Each system sends its local time to master.
+
+3. Average Time Calculation
+
+Master calculates average clock time excluding faulty clocks.
+
+4. Time Adjustment
+
+Master sends correction values to all systems.
+
+5. Clock Synchronization
+
+All systems update their clocks accordingly.
+
+6. Working of Berkeley Algorithm
+Master Server
+      ↓
+Collects Time from All Nodes
+      ↓
+Calculates Average Time
+      ↓
+Sends Time Corrections
+      ↓
+All Clocks Synchronized
+7. Technologies Used
+Distributed Systems
+Java/C/C++
+Networking Concepts
+Clock Synchronization
+Client-Server Architecture
+8. Real Life Examples
+1. Banking Systems
+
+Ensures all banking servers maintain same transaction time.
+
+Example:
+
+ATM transaction timestamp synchronization.
+
+2. Airline Reservation Systems
+
+Synchronizes ticket booking servers.
+
+3. Distributed Databases
+
+Maintains consistent timestamps in databases.
+
+4. Data Centers
+
+Synchronizes servers across network.
+
+9. Advantages
+Maintains uniform system time
+Improves coordination in distributed systems
+Handles clock drift
+Efficient synchronization mechanism
+No external UTC clock required
+10. Limitations
+Single point failure at master
+Network delay affects accuracy
+Complex in large systems
+Faulty clocks may affect average time
+11. Important Viva Questions and Answers
+Q1. What is Berkeley Algorithm?
+
+Berkeley Algorithm is a clock synchronization method used in distributed systems.
+
+Example:
+
+Synchronizing server clocks in data centers.
+
+Q2. What is clock synchronization?
+
+Clock synchronization means maintaining same time across distributed systems.
+
+Example:
+
+All banking servers showing same transaction time.
+
+Q3. What is clock drift?
+
+Clock drift is gradual difference in time between system clocks.
+
+Example:
+
+One computer clock running faster than another.
+
+Q4. What is the role of master server?
+
+Master server collects times and calculates synchronization adjustments.
+
+Example:
+
+Central server coordinating all nodes.
+
+Q5. Why is synchronization important?
+
+Synchronization ensures consistency and proper event ordering.
+
+Example:
+
+Distributed database transactions.
+
+Q6. Does Berkeley Algorithm use UTC time?
+
+No, it uses average system time instead of external UTC reference.
+
+Example:
+
+Internal network synchronization.
+
+Q7. What is distributed system timing problem?
+
+Different systems may show different local times.
+
+Example:
+
+Unsynchronized servers.
+
+Q8. What is time adjustment?
+
+Correction value added or subtracted from system clock.
+
+Example:
+
+Adjusting clock by +2 seconds.
+
+Q9. What is network delay?
+
+Delay during communication between systems.
+
+Example:
+
+Late arrival of synchronization message.
+
+Q10. What are applications of Berkeley Algorithm?
+
+Used in distributed computing and server synchronization.
+
+Example:
+
+Cloud server management.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between Berkeley Algorithm and Cristian’s Algorithm?
+
+Berkeley uses average system time while Cristian’s uses external time server.
+
+Example:
+
+Internal vs external synchronization.
+
+Q2. What happens if master server fails?
+
+Synchronization process stops because master controls coordination.
+
+Example:
+
+No time correction messages sent.
+
+Q3. How is average time calculated?
+
+Master computes mean of all system times excluding abnormal clocks.
+
+Example:
+
+Average of node times.
+
+Q4. What is synchronization error?
+
+Difference between actual and synchronized time.
+
+Example:
+
+Clock mismatch due to delay.
+
+Q5. What is scalability issue in Berkeley Algorithm?
+
+Performance decreases with large number of systems.
+
+Example:
+
+Many nodes increasing communication overhead.
+
+Q6. What is fault tolerance?
+
+Ability to continue functioning despite failures.
+
+Example:
+
+Handling failed system nodes.
+
+Q7. Why are faulty clocks ignored?
+
+Faulty clocks produce incorrect average values.
+
+Example:
+
+Node showing completely wrong time.
+
+Q8. What type of architecture is used?
+
+Master-slave architecture is used.
+
+Example:
+
+One coordinator controlling many nodes.
+
+Q9. What are synchronization messages?
+
+Messages exchanged for time correction.
+
+Example:
+
+Time polling request.
+
+Q10. Why is time consistency important in distributed systems?
+
+It maintains proper ordering of events and transactions.
+
+Example:
+
+Correct banking transaction sequence.

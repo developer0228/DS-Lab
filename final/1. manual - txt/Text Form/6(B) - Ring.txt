@@ -1,0 +1,70 @@
+﻿Assignment 6 – B – Ring Algorithm 
+
+ 
+
+AIM: Implement Ring Algorithm for leader election. 
+
+Objective: To elect a coordinator process in a distributed system using ring 
+election algorithm. 
+
+Outcome: Current active process elects the process with highest priority as 
+coordinator using ring structure. 
+
+Explanation: The ring algorithm is a type of election algorithm used in 
+distributed systems for selecting a coordinator process among active processes 
+arranged in a logical ring. 
+
+In a distributed system, a coordinator is required to manage operations and 
+perform functions needed by all other processes. 
+
+Election algorithms are used to select one process as coordinator when the 
+existing coordinator crashes or becomes unavailable. 
+
+In ring algorithm, all processes are arranged in a logical ring, and each process 
+knows the identity of its next process in the ring. 
+
+Every process has a unique priority number or process ID. 
+
+The process having the highest priority number among active processes is 
+selected as coordinator. 
+
+When a process detects that the coordinator has failed, it starts an election 
+process. 
+
+The Ring algorithm works as follows: 
+
+Let us assume that process P detects that the current coordinator is not 
+responding. 
+
+Process P creates an election message containing its own process ID. 
+
+This election message is passed to the next active process in the ring. 
+
+Each active process receives the message, adds its own process ID to the 
+election message, and forwards it to the next process. 
+
+The message continues circulating through the ring until it returns to process P. 
+
+Process P then examines all process IDs present in the message. 
+
+
+
+The process with the highest priority number is selected as the new 
+coordinator. 
+
+A coordinator message containing the selected process ID is then passed 
+around the ring. 
+
+Each process receives the coordinator message and updates its coordinator 
+information. 
+
+When the coordinator message completes one full cycle, all processes know 
+the identity of the new coordinator. 
+
+If the coordinator fails again, the election process is repeated. 
+
+The ring algorithm ensures that only one coordinator is selected among all 
+active processes. 
+
+It provides an organized way of leader election by passing messages in a 
+circular manner.

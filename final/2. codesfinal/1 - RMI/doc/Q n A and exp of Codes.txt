@@ -1,0 +1,283 @@
+Practical 1: Implement Multi-Threaded Client/Server Process Communication using RMI
+Aim
+
+To implement multi-threaded client/server communication using Java RMI (Remote Method Invocation) for distributed system communication.
+
+1. Explanation of Practical
+What is RMI?
+
+Java RMI (Remote Method Invocation) is a distributed computing technology that allows an object running on one machine (server) to invoke methods on an object running on another machine (client).
+
+It enables communication between distributed applications over a network.
+
+In this practical:
+
+Server provides remote services.
+Client accesses those services remotely.
+Multi-threading allows multiple clients to communicate with the server simultaneously.
+2. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand distributed client-server architecture.
+Learn remote communication between systems.
+Implement Java RMI-based applications.
+Handle multiple clients simultaneously using threads.
+Understand remote object registration and invocation.
+3. Usage of this Practical
+
+This practical is useful for:
+
+Distributed computing systems
+Remote service invocation
+Enterprise applications
+Network-based applications
+Cloud and client-server systems
+
+It helps understand how applications communicate remotely in real-time environments.
+
+4. How it is Implemented
+Step-by-Step Implementation
+1. Create Remote Interface
+Define methods that can be accessed remotely.
+Interface extends Remote.
+Methods throw RemoteException.
+
+Example:
+
+Addition
+Subtraction
+String operations
+2. Implement Remote Interface
+Create server implementation class.
+Extend UnicastRemoteObject.
+Implement remote methods.
+3. Create RMI Server
+Register remote object using RMI Registry.
+Bind object name with registry.
+
+Server waits for client requests.
+
+4. Create Client Program
+Client looks up remote object using registry.
+Invokes methods remotely.
+5. Multi-Threading Concept
+Multiple clients connect simultaneously.
+Each request handled in separate thread.
+Improves concurrency and performance.
+5. Working of Multi-Threaded RMI
+Communication Flow
+Client Request
+      ↓
+RMI Registry
+      ↓
+Server Object
+      ↓
+Separate Thread Created
+      ↓
+Method Executed
+      ↓
+Response Returned to Client
+6. Technologies Used
+Java
+Java RMI API
+Threads
+TCP/IP Networking
+Distributed System Concepts
+7. Real Life Examples where RMI is Used
+1. Banking Systems
+Remote transaction processing
+Balance checking from different branches
+
+Example:
+ATM communicating with central bank server.
+
+2. Online Reservation Systems
+Ticket booking systems
+Multiple users accessing same server simultaneously
+
+Example:
+Railway reservation system.
+
+3. Distributed Chat Applications
+Clients communicate with remote server.
+4. Cloud-Based Applications
+Remote service invocation in cloud infrastructure.
+5. Enterprise Distributed Applications
+Large organizations using centralized servers.
+
+Example:
+ERP systems.
+
+8. Advantages of Multi-Threaded RMI
+Supports distributed computing
+Platform independent
+Simplifies remote communication
+Handles multiple users efficiently
+Object-oriented communication
+9. Limitations
+Network dependency
+Slower than local calls
+Security concerns
+Java dependent
+10. Important Viva Questions and Answers
+Q1. What is RMI?
+
+RMI stands for Remote Method Invocation. It allows a Java object on one system to invoke methods on an object running on another system remotely.
+
+Example:
+
+Client accessing calculator methods from remote server.
+
+Q2. What is distributed system?
+
+A distributed system is a collection of independent computers that communicate and work together as a single system.
+
+Example:
+
+Cloud computing platforms.
+
+Q3. What is the role of RMI Registry?
+
+RMI Registry stores remote object references so clients can locate remote services.
+
+Example:
+
+Client searching calculator object using object name.
+
+Q4. Why is multi-threading used in RMI?
+
+Multi-threading allows the server to handle multiple client requests simultaneously.
+
+Example:
+
+Many users accessing banking server together.
+
+Q5. What is Remote Interface?
+
+A remote interface defines methods that can be invoked remotely by clients.
+
+Example:
+
+Addition and subtraction methods in calculator service.
+
+Q6. What is RemoteException?
+
+RemoteException handles communication-related errors during remote method invocation.
+
+Example:
+
+Server connection failure.
+
+Q7. What is UnicastRemoteObject?
+
+It is a class used to export remote objects so they can receive incoming remote calls.
+
+Example:
+
+Server object becoming remotely accessible.
+
+Q8. Which protocol is used in Java RMI?
+
+Java RMI uses TCP/IP protocol for communication between client and server.
+
+Example:
+
+Data transfer over network.
+
+Q9. What is client-server architecture?
+
+It is a model where clients request services and servers provide services.
+
+Example:
+
+Web browser and web server.
+
+Q10. What are the advantages of RMI?
+
+RMI provides easy remote communication, distributed processing, object-oriented programming support, and multi-client handling.
+
+Example:
+
+Distributed enterprise applications.
+
+11. Important Technical Questions for External Examiner
+Q1. Difference between RMI and Socket Programming?
+
+RMI works on remote objects and methods, while socket programming works on low-level data communication.
+
+Example:
+
+RMI for remote calculator, sockets for chat systems.
+
+Q2. What is stub in RMI?
+
+Stub acts as a proxy object on client side for communicating with remote server object.
+
+Example:
+
+Client uses stub instead of direct server object.
+
+Q3. What happens if server is down?
+
+Client receives RemoteException because remote object becomes unavailable.
+
+Example:
+
+Connection refused error.
+
+Q4. Why does remote interface extend Remote?
+
+It marks methods as remotely accessible.
+
+Example:
+
+Java identifies remote callable methods.
+
+Q5. Can RMI support distributed applications?
+
+Yes, RMI is specially designed for distributed applications.
+
+Example:
+
+Distributed banking systems.
+
+Q6. What is serialization in RMI?
+
+Serialization converts objects into byte stream for network transmission.
+
+Example:
+
+Sending employee object from client to server.
+
+Q7. How does RMI provide transparency?
+
+Client invokes remote methods like local methods without handling network details manually.
+
+Example:
+
+Calling remote add() method directly.
+
+Q8. What are threads?
+
+Threads are lightweight sub-processes used for concurrent execution.
+
+Example:
+
+Multiple clients handled simultaneously.
+
+Q9. What is concurrency in distributed systems?
+
+Concurrency means multiple operations executing at the same time.
+
+Example:
+
+Multiple ATM transactions together.
+
+Q10. Why is Java suitable for RMI?
+
+Java provides built-in RMI libraries, platform independence, and object-oriented support.
+
+Example:
+
+Cross-platform distributed applications.

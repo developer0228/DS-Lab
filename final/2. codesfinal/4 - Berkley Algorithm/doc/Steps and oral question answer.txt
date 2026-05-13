@@ -1,0 +1,166 @@
+﻿Assignment 4: Implement Berkeley algorithm for clock synchronization 
+
+Step 1: Create New Notebook 
+
+• Click New file 
+
+• berkeley.py  
+
+\\\ \\ \ \ \ \ \ \ \ \ \ \ \ \ \\ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  
+
+ 
+
+Viva Questions and Answers for Berkeley Algorithm 
+
+1. What is Berkeley Algorithm? 
+
+Berkeley Algorithm is a clock synchronization algorithm used in distributed systems. 
+
+ 
+
+2. What is clock synchronization? 
+
+Clock synchronization means making all system clocks show approximately the same time. 
+
+ 
+
+3. Why is clock synchronization needed? 
+
+It helps maintain proper coordination and consistency in distributed systems. 
+
+ 
+
+4. Who developed Berkeley Algorithm? 
+
+It was developed at: 
+
+University of California, Berkeley 
+
+ 
+
+5. Is Berkeley Algorithm centralized or decentralized? 
+
+Centralized 
+
+Because one master system controls synchronization. 
+
+ 
+
+6. What is the role of the master clock? 
+
+The master clock: 
+
+• Collects time from all systems  
+
+• Calculates average time  
+
+
+
+• Sends corrected time to all systems  
+
+ 
+
+7. Does Berkeley Algorithm use UTC time? 
+
+No 
+
+It uses the average system time. 
+
+ 
+
+8. What is average time in Berkeley Algorithm? 
+
+Average of all processor/system clock values. 
+
+Example: 
+
+(10 + 15 + 20 + 25) / 4 = 17.5 
+
+ 
+
+9. What happens after calculating average time? 
+
+All processor clocks are updated to the average time. 
+
+ 
+
+10. What is distributed system? 
+
+A distributed system is a collection of multiple computers working together. 
+
+ 
+
+11. What is clock drift? 
+
+Clock drift means clocks run at slightly different speeds over time. 
+
+ 
+
+12. Advantages of Berkeley Algorithm 
+
+• Simple algorithm  
+
+• Better synchronization  
+
+• No need for external UTC clock  
+
+ 
+
+13. Disadvantages of Berkeley Algorithm 
+
+• Master failure affects synchronization  
+
+• Network delays reduce accuracy  
+
+
+
+ 
+
+14. What is the output of your program? 
+
+Clock Times Before Synchronization: 
+[10, 15, 20, 25] 
+ 
+Average Time = 17.5 
+
+ 
+
+15. Which language is used in your program? 
+
+Python 
+
+ 
+
+16. Which platform is used? 
+
+Jupyter Notebook 
+
+ 
+
+17. What is the use of sum() function? 
+
+It calculates the total of all clock values. 
+
+ 
+
+18. What does len(clocks) return? 
+
+It returns the number of clocks/processors. 
+
+ 
+
+19. Why is average calculated? 
+
+To synchronize all clocks to a common time. 
+
+ 
+
+20. Real-life applications of clock synchronization 
+
+• Banking systems  
+
+• Distributed databases  
+
+• Cloud computing  
+
+• Airline reservation systems

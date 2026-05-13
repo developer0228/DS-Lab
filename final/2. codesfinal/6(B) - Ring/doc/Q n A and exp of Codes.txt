@@ -1,0 +1,274 @@
+Practical 6(B): Implement Ring Algorithm for Leader Election
+1. Aim
+
+To implement the Ring algorithm for leader election in a distributed system.
+
+2. Explanation of Practical
+What is Ring Algorithm?
+
+Ring Algorithm is a distributed leader election method where all processes are arranged in a logical ring.
+
+Key idea:
+
+Each process has a unique process ID.
+Election message moves in circular order.
+Every process adds its ID to the election message.
+Highest process ID is selected as leader.
+New coordinator is announced to all processes.
+
+This ensures orderly leader selection.
+
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand distributed leader election.
+Learn logical ring communication.
+Implement coordinator selection.
+Understand process synchronization.
+Handle leader failure in distributed systems.
+4. Usage of Ring Algorithm
+
+Used in:
+
+Distributed operating systems
+Cloud systems
+Network communication
+Cluster computing
+Distributed databases
+
+It helps elect a coordinator when current leader fails.
+
+5. How it is Implemented
+Important Steps
+1. Arrange Processes in Ring
+
+Processes are connected in circular structure.
+
+2. Detect Leader Failure
+
+Any process detects coordinator failure.
+
+3. Start Election
+
+Election message is passed to next process in ring.
+
+4. Compare IDs
+
+Highest process ID is identified.
+
+5. Announce Coordinator
+
+Leader message circulates in ring.
+
+6. Working of Ring Algorithm
+P1 → P2 → P3 → P4 → P5
+↑                   ↓
+← ← ← Election ← ← ←
+
+Highest ID Selected
+        ↓
+Coordinator Message
+7. Technologies Used
+Java/Python/C++
+Distributed Systems
+Networking Concepts
+Socket Communication
+Process Coordination
+8. Real Life Examples
+1. Cluster Systems
+
+Leader selected for managing distributed nodes.
+
+Example:
+
+Apache Hadoop node coordination.
+
+2. Cloud Management
+
+Coordinator handles distributed services.
+
+Example:
+
+Apache ZooKeeper leader coordination.
+
+3. Distributed Databases
+
+Leader manages transactions.
+
+4. Resource Allocation Systems
+
+Coordinator controls resource access.
+
+9. Advantages
+Fair process participation
+Ordered communication
+Reliable election
+Suitable for ring topology
+No central coordinator required
+10. Limitations
+Slow for large systems
+Ring failure affects election
+More delay in communication
+Sequential message passing
+11. Important Viva Questions and Answers
+Q1. What is Ring Algorithm?
+
+Ring Algorithm elects leader by circulating election message in ring structure.
+
+Example:
+
+P5 elected among P1–P5.
+
+Q2. What is logical ring?
+
+Processes are connected in circular communication structure.
+
+Example:
+
+P1 → P2 → P3 → P1.
+
+Q3. What is leader election?
+
+Selecting one process as coordinator among multiple processes.
+
+Example:
+
+Master node selection.
+
+Q4. Which process becomes leader?
+
+Highest active process ID becomes leader.
+
+Example:
+
+P8 selected over P4.
+
+Q5. What is election message?
+
+Message used to initiate coordinator selection.
+
+Example:
+
+Process sending ID around ring.
+
+Q6. What is coordinator message?
+
+Message informing all processes about new leader.
+
+Example:
+
+P5 announced as coordinator.
+
+Q7. What happens if leader fails?
+
+Election process starts automatically.
+
+Example:
+
+Backup coordinator selection.
+
+Q8. What is process ID?
+
+Unique identifier of process.
+
+Example:
+
+P1, P2, P3.
+
+Q9. What is distributed coordination?
+
+Managing tasks among distributed processes.
+
+Example:
+
+Cluster management.
+
+Q10. What are applications?
+
+Used in distributed systems and server clusters.
+
+Example:
+
+Cloud systems.
+
+12. Important Technical Questions for External Examiner
+Q1. Why is ring structure used?
+
+It ensures orderly communication among processes.
+
+Example:
+
+Sequential message passing.
+
+Q2. What happens if ring breaks?
+
+Election may fail due to broken communication path.
+
+Example:
+
+Disconnected process.
+
+Q3. Why highest ID is selected?
+
+Ensures unique leader selection.
+
+Example:
+
+P7 preferred over P3.
+
+Q4. Is Ring Algorithm centralized?
+
+No, it is decentralized.
+
+Example:
+
+Any process can initiate election.
+
+Q5. What is communication overhead?
+
+Extra communication during election.
+
+Example:
+
+Passing election messages.
+
+Q6. Can multiple processes start election?
+
+Yes, but final highest process wins.
+
+Example:
+
+P2 and P4 both start election.
+
+Q7. What is fault tolerance?
+
+System continues after process failure.
+
+Example:
+
+New leader after crash.
+
+Q8. Why is Ring slower than Bully?
+
+Because message must circulate entire ring.
+
+Example:
+
+Large number of processes.
+
+Q9. What is scalability?
+
+Ability to work efficiently with many processes.
+
+Example:
+
+Large distributed network.
+
+Q10. Why is leader election needed?
+
+To coordinate distributed processes.
+
+Example:
+
+Resource management in clusters.

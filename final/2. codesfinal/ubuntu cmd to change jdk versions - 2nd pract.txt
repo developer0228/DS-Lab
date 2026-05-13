@@ -1,0 +1,47 @@
+update the jdk version to :
+
+sudo apt install openjdk-8-jdk -y
+
+java -version
+
+javac -version
+
+----------------------------------------------------------------------------
+command to change the versions simulataneously of jdk:
+
+sudo update-alternatives --config java
+
+sudo update-alternatives --config javac
+
+
+
+---------------------------------------------------------------------------
+🔒 Disable USB Storage Access (Block Pendrive)
+1️⃣ Blacklist the usb-storage driver
+
+This prevents Ubuntu from loading USB storage support.
+
+echo "blacklist usb-storage" | sudo tee /etc/modprobe.d/disable-usb-storage.conf
+2️⃣ Unload the module immediately (without reboot)
+sudo modprobe -r usb-storage
+3️⃣ Update initramfs (important)
+sudo update-initramfs -u
+4️⃣ Reboot system
+sudo reboot
+
+✅ After reboot, pendrive will not be detected.
+
+
+------------------------------------------------------------------------------------------
+
+🔓 Enable USB Storage Access (Allow Pendrive Again)
+1️⃣ Remove blacklist file
+sudo rm /etc/modprobe.d/disable-usb-storage.conf
+2️⃣ Load usb-storage module again
+sudo modprobe usb-storage
+3️⃣ Update initramfs again
+sudo update-initramfs -u
+4️⃣ Reboot
+sudo reboot
+
+✅ USB storage will work again.

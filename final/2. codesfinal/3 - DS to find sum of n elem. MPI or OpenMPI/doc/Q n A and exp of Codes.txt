@@ -1,0 +1,292 @@
+Practical 3: Develop Distributed System to Find Sum of N Elements using MPI/OpenMP
+1. Aim
+
+To develop a distributed system using MPI/OpenMP for calculating the sum of N array elements by distributing work among multiple processors.
+
+2. Explanation of Practical
+What is MPI/OpenMP?
+MPI
+
+MPI stands for Message Passing Interface.
+It is used for communication between multiple processors in distributed systems.
+
+OpenMP
+
+OpenMP stands for Open Multi-Processing.
+It is used for parallel programming using multiple threads in shared memory systems.
+
+In this practical:
+
+Array is divided among processors.
+Each processor calculates partial sum.
+Final sum is obtained by combining intermediate sums.
+3. Outcome of Practical
+
+After performing this practical, we can:
+
+Understand parallel and distributed computing.
+Learn task distribution among processors.
+Implement parallel sum calculation.
+Improve execution speed using multiprocessing.
+Understand processor coordination.
+4. Usage of this Practical
+
+Used in:
+
+High Performance Computing (HPC)
+Scientific computations
+Big data processing
+Parallel algorithms
+Supercomputers
+
+It helps reduce execution time for large computations.
+
+5. How it is Implemented
+Important Steps
+1. Divide Array
+N elements are divided among n processors.
+
+Example:
+100 elements distributed among 4 processors.
+
+2. Assign Work
+
+Each processor receives subset of array.
+
+Example:
+
+P1 → 1–25
+P2 → 26–50
+3. Calculate Intermediate Sum
+
+Every processor computes local sum independently.
+
+4. Combine Results
+
+All intermediate sums are added to obtain final sum.
+
+5. Display Partial Sums
+
+Each processor displays its calculated sum.
+
+6. Working of Distributed Sum Calculation
+Input Array
+      ↓
+Array Divided Among Processors
+      ↓
+Each Processor Calculates Partial Sum
+      ↓
+Intermediate Sums Generated
+      ↓
+Final Sum Computed
+7. Technologies Used
+MPI
+OpenMP
+Parallel Computing
+Distributed Processing
+C/C++ or Java
+8. Real Life Examples
+1. Scientific Simulations
+
+Large mathematical calculations distributed across processors.
+
+Example:
+
+Weather forecasting systems.
+
+2. Big Data Analytics
+
+Large datasets processed in parallel.
+
+Example:
+
+Data analysis in Hadoop clusters.
+
+3. Supercomputers
+
+Multiple processors solve complex problems together.
+
+Example:
+
+Space research calculations.
+
+4. Machine Learning
+
+Parallel computation of huge datasets.
+
+Example:
+
+AI model training.
+
+9. Advantages
+Faster computation
+Efficient processor utilization
+Reduced execution time
+Supports large datasets
+Improves performance
+10. Limitations
+Synchronization complexity
+Communication overhead
+Requires multiple processors
+Debugging is difficult
+11. Important Viva Questions and Answers
+Q1. What is MPI?
+
+MPI stands for Message Passing Interface used for communication between distributed processors.
+
+Example:
+
+Processors exchanging partial sums.
+
+Q2. What is OpenMP?
+
+OpenMP is a parallel programming model using multiple threads in shared memory systems.
+
+Example:
+
+Parallel loop execution.
+
+Q3. What is parallel computing?
+
+Parallel computing performs multiple computations simultaneously using multiple processors.
+
+Example:
+
+Array sum calculation using many processors.
+
+Q4. What is distributed computing?
+
+Distributed computing divides tasks among multiple systems connected through network.
+
+Example:
+
+Cluster computing.
+
+Q5. Why is array divided among processors?
+
+To reduce execution time and improve performance.
+
+Example:
+
+1000 elements shared among 10 processors.
+
+Q6. What is intermediate sum?
+
+It is partial sum calculated by individual processor.
+
+Example:
+
+Processor P1 calculating sum of first 25 elements.
+
+Q7. What is synchronization?
+
+Synchronization coordinates execution among processors or threads.
+
+Example:
+
+Waiting for all processors before final sum.
+
+Q8. What is processor communication in MPI?
+
+Processors exchange data using message passing.
+
+Example:
+
+Sending partial sums to master processor.
+
+Q9. What are advantages of parallel processing?
+
+It improves speed, efficiency, and large-scale computation handling.
+
+Example:
+
+Scientific simulations.
+
+Q10. What is load balancing?
+
+Equal distribution of work among processors.
+
+Example:
+
+Each processor receiving same number of elements.
+
+12. Important Technical Questions for External Examiner
+Q1. Difference between MPI and OpenMP?
+
+MPI uses message passing in distributed memory systems while OpenMP uses threads in shared memory systems.
+
+Example:
+
+Cluster vs multicore CPU.
+
+Q2. What is master-slave architecture in MPI?
+
+Master distributes tasks and slaves perform computations.
+
+Example:
+
+Master collecting intermediate sums.
+
+Q3. Why is parallel processing important?
+
+It reduces computation time for large problems.
+
+Example:
+
+Big data analysis.
+
+Q4. What is scalability?
+
+Ability to increase performance with additional processors.
+
+Example:
+
+Adding processors for faster execution.
+
+Q5. What is communication overhead?
+
+Extra time spent exchanging data between processors.
+
+Example:
+
+Sending partial sums.
+
+Q6. What is thread in OpenMP?
+
+Thread is lightweight execution unit used for parallel tasks.
+
+Example:
+
+Multiple threads processing array simultaneously.
+
+Q7. What is reduction operation?
+
+Combining partial results into final result.
+
+Example:
+
+Adding all intermediate sums.
+
+Q8. What is shared memory?
+
+Memory accessible by multiple processors or threads.
+
+Example:
+
+OpenMP shared variables.
+
+Q9. What are applications of MPI?
+
+MPI is used in scientific computing and distributed systems.
+
+Example:
+
+Supercomputers.
+
+Q10. Why are distributed systems useful?
+
+They improve performance and resource utilization.
+
+Example:
+
+Cloud computing systems.
