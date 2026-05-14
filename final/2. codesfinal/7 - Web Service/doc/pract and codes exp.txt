@@ -1,0 +1,230 @@
+Practical 7: Simple Web Service (Client–Server)
+Aim
+
+Create a simple web service and distributed application to consume that service.
+
+Main concept used
+
+This practical implements a simple distributed service using Java Socket communication.
+
+(Technically this is a socket-based service rather than a full SOAP/REST web service, but for DS practicals it is commonly accepted as a simple service-provider/client example.)
+
+1. CalculatorServer.java
+Purpose
+
+Acts as the server that provides calculator service.
+
+This server waits for client request, performs addition, and sends result back.
+
+Import Statements
+import java.net.*;
+import java.io.*;
+Purpose
+java.net
+
+Used for networking.
+
+java.io
+
+Used for data transfer streams.
+
+External answer
+
+java.net handles communication and java.io handles sending/receiving data.
+
+ServerSocket
+ServerSocket ss = new ServerSocket(5000);
+Purpose
+
+Creates server at port 5000.
+
+Why used
+
+Server listens for client requests.
+
+External answer
+
+ServerSocket creates service endpoint for client connection.
+
+Accept Connection
+Socket s = ss.accept();
+Purpose
+
+Waits until client connects.
+
+Logic
+
+Server blocks until request arrives.
+
+External answer
+
+accept() establishes connection between client and server.
+
+Input Stream
+DataInputStream in
+Purpose
+
+Receives client data.
+
+In this practical
+
+Receives two integers.
+
+Output Stream
+DataOutputStream out
+Purpose
+
+Sends response to client.
+
+Read Data
+int a = in.readInt();
+int b = in.readInt();
+Purpose
+
+Reads numbers sent by client.
+
+Logic
+
+Client sends operands.
+
+Processing
+int sum = a + b;
+Purpose
+
+Performs service operation.
+
+Why
+
+Server acts as service provider.
+
+Send Result
+out.writeInt(sum);
+Purpose
+
+Returns result to client.
+
+External answer
+
+Server processes request and returns response through output stream.
+
+Close
+ss.close();
+Purpose
+
+Stops server socket.
+
+2. CalculatorClient.java
+Purpose
+
+Acts as client which consumes service.
+
+Client sends request and receives result.
+
+Socket
+Socket s = new Socket("localhost",5000);
+Purpose
+
+Connects to server.
+
+Why localhost
+
+Both running on same system.
+
+External answer
+
+Client connects to server using localhost and specified port.
+
+Output Stream
+Purpose
+
+Sends numbers to server.
+
+Input Stream
+Purpose
+
+Receives result from server.
+
+Send Data
+out.writeInt(10);
+out.writeInt(20);
+Purpose
+
+Sends operands.
+
+Logic
+
+Request to perform addition.
+
+Receive Result
+int result = in.readInt();
+Purpose
+
+Reads server response.
+
+Print
+Output
+Addition = 30
+Overall Practical Logic
+Flow
+Client → Send numbers → Server receives → Process → Return result → Client prints
+Distributed Concepts Applied
+Concepts
+
+✅ Client-server architecture
+✅ Socket communication
+✅ Service provider
+✅ Service consumer
+✅ Request-response
+✅ Network communication
+
+Why this practical in DS
+
+Distributed systems use:
+
+remote service execution
+communication between processes
+service consumption
+
+This demonstrates all.
+
+Real-world use
+
+Used in:
+
+online services
+distributed apps
+cloud applications
+APIs
+remote processing
+External answer
+
+If asked “Why web service?”
+
+Say:
+
+Server provides a service (addition) and client remotely consumes it over network.
+
+One-line logic
+
+Client sends request to server, server performs operation and sends result back.
+
+Difference from RMI/CORBA
+RMI/CORBA	Web Service
+Remote object	Service request
+Interface based	Socket based
+Object communication	Message communication
+Important viva point
+
+Here service is:
+
+addition service
+
+Server exposes operation.
+
+Client consumes service.
+
+That is why considered distributed application.
+
+Conclusion
+
+This practical demonstrates simple distributed service using socket programming where client consumes arithmetic service provided by server.
