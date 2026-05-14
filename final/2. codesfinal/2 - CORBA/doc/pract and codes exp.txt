@@ -1,0 +1,149 @@
+1. Calc.idl
+Purpose
+
+This is the IDL file (Interface Definition Language).
+
+What it contains
+
+Defines remote methods:
+
+add()
+sub()
+mul()
+div()
+Why used
+
+IDL acts as a common interface definition so both client and server understand available operations.
+
+Concept applied
+
+Interface definition for distributed objects.
+
+Logic
+
+CORBA compiler converts this IDL into Java classes like:
+
+Calc.java
+CalcHelper.java
+CalcPOA.java
+
+These generated files help communication.
+
+External answer
+
+Calc.idl defines calculator methods using IDL, which acts as common contract between client and server.
+
+2. Server.java
+Purpose
+
+Creates CORBA server and registers calculator service.
+
+Class A
+Purpose
+
+Implements remote methods.
+
+What it contains
+
+Implements:
+
+addition
+subtraction
+multiplication
+division
+Why used
+
+Actual server-side execution logic.
+
+External answer
+
+Class A implements calculator methods which are invoked remotely by client.
+
+Server Main
+Logic
+
+Stepwise:
+
+Initialize ORB
+Activate POA
+Create servant object
+Convert servant to CORBA reference
+Register object in naming service
+Wait for requests
+Concept applied
+ORB
+POA
+Naming service
+Object binding
+External answer
+
+Server initializes ORB, creates servant object and binds it to naming service for client access.
+
+3. Client.java
+Purpose
+
+Client program that accesses calculator remotely.
+
+Logic
+
+Stepwise:
+
+Initialize ORB
+Connect naming service
+Search object name "ABC"
+Get object reference
+Invoke remote methods
+Print result
+Concept applied
+Naming lookup
+Remote object access
+Stub invocation
+External answer
+
+Client locates remote calculator object through naming service and invokes operations remotely.
+
+Overall Practical Logic
+Flow
+Client → Name Service → ORB → Server Object → Execute → Return
+Main DS Concepts Applied
+Concepts
+
+✅ CORBA architecture
+✅ ORB
+✅ Naming service
+✅ IDL
+✅ Stub/Skeleton
+✅ Remote object
+✅ Distributed communication
+
+Why this practical
+
+CORBA demonstrates:
+
+Distributed object communication
+Platform independence
+Language independence
+Middleware architecture
+
+Used in:
+
+enterprise distributed systems
+telecom
+banking
+middleware applications
+Difference from RMI
+RMI	CORBA
+Java only	Multi-language
+Uses interface	Uses IDL
+Java based	Middleware based
+One-line external answer
+
+If asked “What is logic?”
+
+Say:
+
+Server implements calculator object and registers it in CORBA naming service. Client locates object through ORB and invokes methods remotely.
+
+Conclusion
+
+This practical implements CORBA-based distributed calculator service where client invokes arithmetic operations on remote server using ORB and IDL.
