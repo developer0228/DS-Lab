@@ -1,0 +1,232 @@
+Practical 4: Berkeley Algorithm
+Aim
+
+Implement Berkeley Algorithm for clock synchronization in distributed systems.
+
+Main concept used
+
+Berkeley algorithm synchronizes clocks of all systems by using one master clock server, which coordinates and updates time for connected clients.
+
+1. assign4.ipynb
+Purpose
+
+This notebook implements Berkeley clock synchronization using Python sockets and multithreading.
+
+Why notebook
+
+Used to run distributed simulation easily in Jupyter Notebook.
+
+!pip install python-dateutil
+Purpose
+
+Installs Python package.
+
+Why used
+
+Supports date and time handling.
+
+External answer
+
+python-dateutil library helps in parsing and managing date-time values.
+
+Import Section
+socket, threading, datetime, time
+Purpose
+
+Used for:
+
+socket → communication
+threading → parallel execution
+datetime → clock values
+time → synchronization interval
+External answer
+
+These modules implement network communication and parallel synchronization.
+
+client_data = {}
+Purpose
+
+Dictionary to store connected clients.
+
+What stores
+client address
+connection object
+Why used
+
+Master needs all client details to synchronize clocks.
+
+External answer
+
+client_data stores all connected client information for synchronization.
+
+receive(conn, addr)
+Purpose
+
+Receives client connections.
+
+Logic
+receives message
+stores client details
+updates dictionary
+repeats every 5 sec
+Why used
+
+Maintains active client list.
+
+Concept applied
+
+Dynamic node management.
+
+External answer
+
+receive() handles client communication and updates active client records.
+
+connect(server)
+Purpose
+
+Accepts new client connections continuously.
+
+Logic
+Wait for client
+Accept connection
+Save address
+Start thread for client
+Why thread used
+
+Allows many clients simultaneously.
+
+External answer
+
+connect() continuously accepts clients and creates separate thread for each client.
+
+sync()
+Most important function
+Purpose
+
+Performs clock synchronization.
+
+Logic
+Start sync cycle
+Check connected clients
+Send master clock time
+Repeat after 5 sec
+Berkeley concept
+
+Master node periodically sends time to slaves.
+
+External answer
+
+sync() is main Berkeley synchronization logic where master broadcasts clock time to all clients.
+
+server_start()
+Purpose
+
+Starts master server.
+
+Logic
+Create socket
+Bind port
+Start listening
+Start connect thread
+Start sync thread
+Socket
+s = socket.socket()
+Purpose
+
+Creates communication endpoint.
+
+Bind
+s.bind(('', port))
+Purpose
+
+Assigns server port.
+
+Here
+
+Port = 8080
+
+Listen
+s.listen(10)
+Purpose
+
+Allows 10 clients maximum.
+
+Threads
+1
+
+connect thread
+
+2
+
+sync thread
+
+Why
+
+Both run simultaneously.
+
+Overall Practical Logic
+Flow
+Clients → Connect Master → Store Clients → Send Time → Synchronize Clocks
+Distributed Concepts Applied
+Concepts
+
+✅ Clock synchronization
+✅ Master-slave architecture
+✅ Socket programming
+✅ Multithreading
+✅ Time coordination
+✅ Distributed communication
+
+Why this practical in DS
+
+In distributed systems:
+
+Each machine has independent clock.
+
+Problem:
+
+Different clocks cause inconsistency.
+
+Berkeley solves by:
+
+central master
+common synchronized time
+Real-world use
+
+Used in:
+
+distributed databases
+cloud systems
+server clusters
+transaction systems
+One-line external answer
+
+If asked “What concept used?”
+
+Say:
+
+We implemented Berkeley algorithm where master server synchronizes all client clocks periodically.
+
+One-line logic
+
+Master accepts client connections, stores them, and periodically sends synchronized time to all clients.
+
+Important viva point
+
+Your code simplifies Berkeley.
+
+Actual Berkeley algorithm also:
+
+collects client times
+calculates average
+adjusts offsets
+
+Your code demonstrates:
+
+simplified synchronization model
+
+External usually accepts this.
+
+Conclusion
+
+This practical demonstrates Berkeley clock synchronization using socket programming where one master node synchronizes all connected distributed clients.
