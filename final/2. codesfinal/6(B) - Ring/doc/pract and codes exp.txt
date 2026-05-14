@@ -1,0 +1,329 @@
+Practical 6B: Ring Algorithm
+Aim
+
+Implement Ring Algorithm for coordinator election in distributed systems.
+
+Main concept used
+
+In Ring algorithm, all processes are arranged in a logical ring. When coordinator fails, an election message circulates through the ring, and the process with highest ID becomes new coordinator.
+
+1. Ring.java
+Purpose
+
+Simulates leader election using ring topology where election message passes through all active processes.
+
+Import
+import java.util.*;
+Purpose
+
+Used for:
+
+Scanner
+ArrayList
+Collections
+Why used
+
+For input and storing active processes during election.
+
+Scanner
+Purpose
+
+Takes user input.
+
+Used for:
+
+process count
+process failure
+process recovery
+election
+Number of Processes
+int n = sc.nextInt();
+Purpose
+
+Total distributed processes.
+
+Example
+
+If n = 5:
+
+Processes:
+
+P1, P2, P3, P4, P5
+
+Boolean Array
+boolean[] p = new boolean[n];
+Purpose
+
+Stores process state.
+
+Meaning
+true → active
+false → down
+Why used
+
+To simulate process crash.
+
+External answer
+
+Boolean array keeps status of each process whether active or failed.
+
+Initialization
+for (int i = 0; i < n; i++) p[i] = true;
+Purpose
+
+Initially all processes active.
+
+Coordinator
+int coordinator = n;
+Purpose
+
+Stores current leader.
+
+Logic
+
+Highest process initially selected.
+
+Example
+
+P5
+
+Menu Options
+Purpose
+
+Provides operations.
+
+1 Display
+2 Down
+3 Up
+4 Election
+5 Exit
+
+Case 1 → Display
+Purpose
+
+Shows:
+
+active processes
+failed processes
+current coordinator
+External answer
+
+Display option shows process states and coordinator.
+
+Case 2 → Down
+Purpose
+
+Simulates process failure.
+
+Logic
+
+Selected process marked false.
+
+Example
+
+P5 down.
+
+Case 3 → Up
+Purpose
+
+Recovers failed process.
+
+Logic
+
+Selected process marked active.
+
+Case 4 → Election
+Most important part
+Initiator
+Enter initiator process
+Purpose
+
+Process that starts election.
+
+ArrayList
+ArrayList<Integer> list = new ArrayList<>();
+Purpose
+
+Stores active processes participating in election.
+
+Why used
+
+To collect IDs passed in ring.
+
+temp variable
+int temp = start - 1;
+Purpose
+
+Current process pointer.
+
+Ring Traversal
+Core logic
+do while
+Why used
+
+Ensures complete circular traversal.
+
+Main Election Logic
+temp = (temp + 1) % n;
+Very important
+Purpose
+
+Maintains circular movement.
+
+Meaning
+
+After last process, control returns to first.
+
+This creates ring.
+List Add
+list.add(temp + 1);
+Purpose
+
+Adds active process IDs.
+
+Why
+
+All active processes participate.
+
+Message Passing
+Output
+P2 passes: [2]
+P3 passes: [2,3]
+P4 passes: [2,3,4]
+Meaning
+
+Election message circulates through ring.
+
+External answer
+
+Election message travels through all active processes in ring sequence.
+
+Coordinator Selection
+Collections.max(list)
+Purpose
+
+Select highest active process.
+
+Why
+
+Highest ID wins.
+
+Overall Practical Logic
+Flow
+Coordinator fails → Initiator starts election → Message circulates in ring → Active IDs collected → Highest ID selected
+Distributed Concepts Applied
+Concepts
+
+✅ Ring topology
+✅ Leader election
+✅ Message passing
+✅ Fault tolerance
+✅ Distributed coordination
+✅ Circular communication
+
+Why this practical in DS
+
+In distributed systems:
+
+When coordinator fails:
+
+all nodes cooperate to elect new coordinator.
+
+Ring algorithm avoids direct broadcast.
+
+Uses circular message passing.
+
+Real-world use
+
+Used in:
+
+distributed clusters
+network systems
+process management
+decentralized coordination
+Your Input Explanation
+
+Input:
+
+5
+2
+5
+4
+2
+1
+5
+
+Processes:
+
+P1 P2 P3 P4 P5
+
+2
+
+Choose down option.
+
+5
+
+P5 down.
+
+Coordinator failed.
+
+4
+
+Start election.
+
+2
+
+P2 initiates election.
+
+1
+
+Display final status.
+
+Election Flow
+
+Ring traversal:
+
+P2 → P3 → P4 → P1 → back to P2
+
+(P5 skipped because down)
+
+Coordinator
+
+Highest active:
+
+P4
+
+So:
+
+New coordinator = P4
+
+Difference from Bully
+Bully	Ring
+Direct higher message	Circular message
+Fast	Slower
+Highest replies directly	All participate
+One-line external answer
+
+If asked “What concept used?”
+
+Say:
+
+We implemented Ring election where election message circulates in ring and highest active process becomes coordinator.
+
+One-line logic
+
+Initiator sends election message in circular ring, all active process IDs are collected, and highest active process becomes coordinator.
+
+Important viva point
+
+Ring is:
+
+logical ring
+
+Not necessarily physical ring.
+
+Processes are logically arranged.
+
+Conclusion
+
+This practical demonstrates ring-based coordinator election where distributed processes circulate election message and select highest active process as leader.
