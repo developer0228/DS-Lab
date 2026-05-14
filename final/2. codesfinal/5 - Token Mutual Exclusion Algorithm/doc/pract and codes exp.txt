@@ -1,0 +1,242 @@
+Practical 5: Token Ring Mutual Exclusion
+Aim
+
+Implement Token Ring algorithm for mutual exclusion in distributed systems.
+
+Main concept used
+
+Token Ring algorithm allows only the process holding the token to access critical section or send data.
+
+1. Tring.java
+Purpose
+
+Simulates token passing in a ring network and controlled data transmission.
+
+Import
+import java.util.*;
+Purpose
+
+Used for input through Scanner.
+
+Main Class
+Tring
+
+Represents token ring simulation.
+
+Scanner
+Scanner sc = new Scanner(System.in);
+Purpose
+
+Accept user input.
+
+Why used
+
+To dynamically enter:
+
+number of nodes
+sender
+receiver
+data
+Number of Nodes
+int n = sc.nextInt();
+Purpose
+
+Total processes in ring.
+
+Logic
+
+Creates logical distributed ring.
+
+Example
+
+5 nodes means:
+
+0,1,2,3,4
+
+Ring Display
+0 -> 1 -> 2 -> 3 -> 4 -> 0
+Purpose
+
+Shows circular connection.
+
+Why
+
+In token ring every node connected circularly.
+
+External answer
+
+Ring topology connects each process in circular order.
+
+Sender Input
+int s
+Purpose
+
+Node sending message.
+
+Receiver Input
+int r
+Purpose
+
+Destination node.
+
+Data Input
+int d
+Purpose
+
+Message to transmit.
+
+Token Passing
+for (int i = 0; i <= s; i++)
+Purpose
+
+Simulates token movement.
+
+Logic
+
+Token starts from node 0 and moves till sender.
+
+Why
+
+Sender can send only after receiving token.
+
+External answer
+
+Token grants permission to access communication channel.
+
+Data Forwarding
+Core logic
+for (int i = s; i != r; i = (i + 1) % n)
+Most important
+Purpose
+
+Passes data through intermediate nodes.
+
+Logic
+
+Node forwards until receiver reached.
+
+% n meaning
+
+Maintains circular movement.
+
+Receiver
+Purpose
+
+Final destination receives message.
+
+Repeat Loop
+do while
+Purpose
+
+Allows multiple communication cycles.
+
+Overall Practical Logic
+Flow
+Token circulates → Sender gets token → Sends data → Forward around ring → Receiver gets data
+Distributed Concepts Applied
+Concepts
+
+✅ Mutual exclusion
+✅ Token passing
+✅ Ring topology
+✅ Critical section access
+✅ Distributed coordination
+✅ Process synchronization
+
+Why this practical in DS
+
+In distributed systems:
+
+Many processes may access shared resource.
+
+Problem:
+
+Conflict may occur.
+
+Solution:
+
+Token Ring ensures only one process accesses at a time.
+
+Real-world use
+
+Used in:
+
+network access control
+printer sharing
+distributed file systems
+process coordination
+Your input explanation
+
+Input:
+
+5
+1
+3
+100
+0
+
+Means:
+
+5
+
+Total nodes
+
+1
+
+Sender
+
+3
+
+Receiver
+
+100
+
+Data
+
+0
+
+Stop program
+
+Output logic
+Ring
+0 → 1 → 2 → 3 → 4 → 0
+Token
+
+Moves:
+
+0 → 1
+
+Sender gets token.
+
+Data path
+1 → 2 → 3
+
+Receiver gets message.
+
+One-line external answer
+
+If asked “What concept used?”
+
+Say:
+
+We implemented token ring mutual exclusion where only token holder process can transmit data.
+
+One-line logic
+
+Token circulates in ring, sender waits for token, then data is forwarded node by node to receiver.
+
+Important viva point
+
+Critical section means:
+
+Shared resource access.
+
+Token acts as:
+
+permission key
+
+Only one process can use at a time.
+
+Conclusion
+
+This practical demonstrates token-based mutual exclusion where token controls communication and ensures synchronized access in distributed ring network.
