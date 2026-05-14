@@ -1,0 +1,167 @@
+Practical 3: Distributed Sum of N Elements using OpenMP
+Aim
+
+Implement distributed system to find sum of array elements by dividing work among multiple processors/threads.
+
+Main concept used
+
+OpenMP for parallel processing.
+
+This practical demonstrates how a task is divided among multiple processors to improve execution speed.
+
+1. sum.c
+Purpose
+
+This program calculates sum of array elements using parallel execution.
+
+Header Files
+stdio.h
+
+Used for input/output operations.
+
+omp.h
+
+Used for OpenMP functions.
+
+Why used
+
+Provides parallel programming functions like:
+
+thread creation
+processor identification
+scheduling
+External answer
+
+omp.h is required for OpenMP parallel execution and thread management.
+
+Array Initialization
+int a[5] = {10,20,30,40,50};
+Purpose
+
+Stores numbers for summation.
+
+Logic
+
+Each element will be processed by separate thread.
+
+Sum Variable
+int sum = 0;
+Purpose
+
+Stores final total.
+
+Core Parallel Section
+#pragma omp parallel for reduction(+:sum)
+Most important line
+Meaning
+
+This directive tells compiler:
+
+execute loop in parallel
+divide iterations among processors
+combine partial sums safely
+Concept applied
+1. Parallelization
+
+Loop iterations distributed across threads.
+
+2. Reduction
+
+Each thread calculates local sum.
+
+Then all local sums are merged.
+
+Why reduction used
+
+Without reduction:
+
+multiple threads modify same variable
+race condition occurs
+
+Reduction avoids this.
+
+External answer
+
+Reduction is used to combine thread results safely and avoid race condition.
+
+For Loop
+for(int i=0; i<5; i++)
+Logic
+
+Each thread gets one or more array elements.
+
+Example:
+
+Thread 0 → 10
+Thread 1 → 20
+Thread 2 → 30
+Thread 3 → 40
+Thread 4 → 50
+Print Statement
+omp_get_thread_num()
+Purpose
+
+Displays which processor/thread is executing.
+
+Why used
+
+Shows work distribution practically.
+
+External answer
+
+omp_get_thread_num() gives current thread ID executing that part.
+
+Final Output
+Total Sum = 150
+Logic
+
+After reduction:
+all partial sums combine.
+
+Overall Practical Logic
+Flow
+Array → Divide Elements → Assign Threads → Local Sum → Merge → Final Sum
+Distributed Concept Applied
+Concepts
+
+✅ Task distribution
+✅ Parallel processing
+✅ Shared memory
+✅ Thread synchronization
+✅ Reduction
+✅ Concurrent execution
+
+Why this practical in DS
+
+Distributed systems focus on:
+
+dividing workload
+parallel execution
+improving speed
+
+This program simulates that using OpenMP.
+
+Real-world use
+
+Used in:
+
+scientific computing
+big data processing
+image processing
+matrix operations
+parallel simulations
+One-line external answer
+
+If asked “What concept used?”
+
+Say:
+
+We used OpenMP parallel for with reduction to distribute array elements among processors and combine partial sums.
+
+One-line logic
+
+Array elements are divided among threads, each thread computes partial sum, and reduction combines all results into final sum.
+
+Conclusion
+
+This practical demonstrates parallel processing in distributed systems by dividing summation work among multiple processors using OpenMP.
