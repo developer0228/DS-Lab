@@ -1,0 +1,172 @@
+Practical 1: RMI (Remote Method Invocation)
+Aim
+
+Implement communication between client and server using Java RMI, where client invokes methods on a remote server object.
+
+Main concept used
+
+Java RMI — allows one Java program to call methods of another Java program running on different machine/process.
+
+1. Hello.java
+Purpose
+
+This is the remote interface.
+
+What it contains
+Declares the method:
+message(String name)
+Extends Remote
+Throws RemoteException
+Why used
+
+In RMI, client and server must know what methods can be called remotely.
+This interface acts like a contract.
+
+Logic
+Server implements this interface.
+Client accesses this interface.
+Both communicate using same method definition.
+External answer
+
+Hello.java defines the remote service contract. It tells which method can be invoked remotely by client.
+
+2. HelloImpl.java
+Purpose
+
+This is the implementation class.
+
+What it contains
+Actual code of remote method.
+Implements Hello
+Extends UnicastRemoteObject
+Why used
+
+This file provides actual business logic executed on server side.
+
+Concept applied
+Remote object creation
+Method synchronization
+Logic
+
+When client sends request:
+
+server executes message()
+returns response string
+synchronized use
+
+Used to handle multiple client requests safely.
+
+External answer
+
+HelloImpl.java contains actual implementation of remote method. It executes requested task and sends result back.
+
+3. Server.java
+Purpose
+
+This starts the RMI server.
+
+What it contains
+Creates remote object
+Creates registry
+Binds service name
+Key concept
+
+RMI Registry
+
+Logic
+
+Steps:
+
+Create object of HelloImpl
+Start registry at port 1099
+Bind object name "HelloService"
+Wait for client requests
+Why used
+
+To make remote object available to clients.
+
+External answer
+
+Server.java registers remote object with RMI registry so client can locate and access it.
+
+4. Client.java
+Purpose
+
+This is client program.
+
+What it contains
+Creates 5 client threads
+Each thread connects to server
+Calls remote method
+Concept applied
+Multithreading
+Client-server communication
+Remote invocation
+Logic
+
+Each client thread:
+
+Connects registry
+Looks up service
+Calls remote function
+Prints response
+Why threads?
+
+To simulate multiple distributed clients accessing same server.
+
+External answer
+
+Client.java creates multiple clients to access server concurrently and invoke remote method.
+
+Overall Practical Logic
+Flow
+Client → Registry → Server Object → Execute Method → Return Result
+
+Stepwise:
+
+Server starts
+Server registers service
+Client searches service in registry
+Client invokes method
+Server executes
+Response returned
+What distributed concept applied
+Concepts used
+
+✅ Remote communication
+✅ Stub-based invocation
+✅ Distributed object
+✅ Registry service
+✅ Client-server model
+✅ Concurrent requests
+
+Why this practical in DS
+
+This practical demonstrates:
+
+Communication between distributed processes
+Service discovery
+Remote execution
+Multi-client handling
+
+In real systems:
+
+Used in:
+
+distributed applications
+banking systems
+enterprise systems
+remote services
+One-line external answer
+
+If external asks “What is your logic?”
+
+Say:
+
+Server creates remote object and binds it in registry. Client looks up the object and remotely invokes method. 
+RMI internally transfers request and response.
+
+One-line conclusion
+
+This practical shows implementation of Java RMI where remote methods are invoked across 
+distributed processes using registry and remote interface.
