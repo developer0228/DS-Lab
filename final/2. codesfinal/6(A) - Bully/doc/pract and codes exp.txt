@@ -1,0 +1,292 @@
+Practical 6A: Bully Algorithm
+Aim
+
+Implement Bully Algorithm for coordinator election in distributed systems.
+
+Main concept used
+
+Bully algorithm selects the process with highest priority (highest process ID) as coordinator when current coordinator fails.
+
+1. Bully.java
+Purpose
+
+Simulates election of new coordinator when one process goes down.
+
+Import
+import java.util.*;
+Purpose
+
+Used for Scanner input.
+
+Scanner
+Purpose
+
+Takes user input for:
+
+process count
+process failure
+process recovery
+election
+Number of Processes
+int n = sc.nextInt();
+Purpose
+
+Total distributed processes.
+
+Example
+
+If n = 5:
+
+Processes:
+
+P1, P2, P3, P4, P5
+
+Boolean Array
+boolean[] p = new boolean[n];
+Purpose
+
+Stores status of processes.
+
+Meaning
+true → active
+false → down
+Why used
+
+To simulate process failure.
+
+External answer
+
+Boolean array stores whether each process is alive or failed.
+
+Coordinator
+int coordinator = n;
+Purpose
+
+Stores current leader.
+
+Logic
+
+Initially highest process becomes coordinator.
+
+Example:
+
+P5
+
+Why
+
+Bully algorithm always chooses highest active process.
+
+Menu
+Purpose
+
+Allows operations.
+
+Options:
+
+1 Display
+2 Down
+3 Up
+4 Election
+5 Exit
+
+Case 1 → Display
+Purpose
+
+Shows process status.
+
+Output
+
+Displays:
+
+process active/down
+current coordinator
+External answer
+
+Display shows system state and coordinator.
+
+Case 2 → Down
+Purpose
+
+Simulates process failure.
+
+Logic
+
+User selects process.
+
+Status set false.
+
+Example
+
+P5 down.
+
+Why
+
+To test election after failure.
+
+Case 3 → Up
+Purpose
+
+Recovers process.
+
+Logic
+
+Set process active.
+
+External answer
+
+Up operation simulates process restart.
+
+Case 4 → Election
+Most important
+Input
+Enter process initiating election
+Purpose
+
+Starting process initiates election.
+
+Election Logic
+for (int i = start; i < n; i++)
+Logic
+
+Process sends election message to all higher processes.
+
+Concept
+
+Higher ID processes respond.
+
+Highest active becomes coordinator.
+Why called Bully
+
+Because highest process “bullies” smaller ones and becomes leader.
+
+External answer
+
+Highest active process overrides all lower processes and becomes coordinator.
+
+Election Message
+Output
+Election message from P2 to P3
+Purpose
+
+Shows communication between processes.
+
+New Coordinator
+Output
+New Coordinator = P4
+Logic
+
+Highest alive process elected.
+
+Overall Practical Logic
+Flow
+Coordinator fails → Process detects failure → Starts election → Higher processes reply → Highest active elected
+Distributed Concepts Applied
+Concepts
+
+✅ Leader election
+✅ Failure detection
+✅ Process recovery
+✅ Coordinator selection
+✅ Distributed communication
+✅ Priority-based election
+
+Why this practical in DS
+
+In distributed systems:
+
+Coordinator handles tasks like:
+
+synchronization
+resource allocation
+communication
+
+If coordinator fails:
+
+new coordinator needed.
+
+Bully algorithm solves.
+
+Real-world use
+
+Used in:
+
+distributed servers
+cluster systems
+fault-tolerant systems
+cloud management
+Your Input Explanation
+
+Input:
+
+5
+2
+5
+4
+2
+1
+5
+
+Processes:
+
+P1 P2 P3 P4 P5
+
+2
+
+Select down option.
+
+5
+
+P5 goes down.
+
+Old coordinator failed.
+
+4
+
+Start election.
+
+2
+
+P2 starts election.
+
+1
+
+Display status.
+
+Logic of output
+
+P2 sends election to:
+
+P3
+P4
+P5 (ignored if down)
+
+Highest active:
+
+P4
+
+So:
+
+P4 becomes coordinator.
+One-line external answer
+
+If asked “What concept used?”
+
+Say:
+
+We implemented Bully algorithm where highest active process becomes coordinator after failure of existing coordinator.
+
+One-line logic
+
+When coordinator fails, initiating process sends election messages to higher processes and highest active process becomes leader.
+
+Important viva point
+
+Condition:
+
+highest process ID = highest priority
+
+This is core concept.
+
+Conclusion
+
+This practical demonstrates leader election using Bully algorithm where highest active process is selected as coordinator after failure detection.
